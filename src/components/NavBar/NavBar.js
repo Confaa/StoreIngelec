@@ -1,20 +1,15 @@
+import React from "react";
 import "./NavBar.css";
-
+import CartWidget from "./../CartWidget/CartWidget.js";
 let NavBar = () => {
     return (
         <header>
             <div class="container">
                 <section>
-                    <a href="index.html">
+                    <a href="#">
                         <h2>Store Ingelec</h2>
                     </a>
-
-                    <a href="#">
-                        <div class="carritoNavBar">
-                            <p class="d-none d-md-block">Carrito de compras</p>
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
-                    </a>
+                    <CartWidget />
                 </section>
 
                 <a href="#" class="toggle-button">
