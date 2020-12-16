@@ -1,5 +1,5 @@
 import React from "react";
-import "./Home.css";
+import "./Home.scss";
 import ItemListContainer from "./../ItemListContainer/ItemListContainer.js";
 
 let Home = () => {
