@@ -4,7 +4,7 @@ import CartWidget from "./../CartWidget/CartWidget.js";
 let NavBar = () => {
     return (
         <header>
-            <div class="container">
+            <div className="container">
                 <section>
                     <a href="#">
                         <h2>Store Ingelec</h2>
@@ -12,16 +12,16 @@ let NavBar = () => {
                     <CartWidget />
                 </section>
 
-                <a href="#" class="toggle-button">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
+                <a href="#" className="toggle-button">
+                    <span className="bar"></span>
+                    <span className="bar"></span>
+                    <span className="bar"></span>
                 </a>
 
                 <nav>
-                    <ul class="navBar">
-                        <li class="desplegable">
-                            Motherboards<i class="fas fa-angle-down"></i>
+                    <ul className="navBar">
+                        <li className="desplegable">
+                            Motherboards<i className="fas fa-angle-down"></i>
                             <ul>
                                 <li>
                                     <a href="views/mothersAmd.html">P/AMD</a>
@@ -31,8 +31,8 @@ let NavBar = () => {
                                 </li>
                             </ul>
                         </li>
-                        <li class="desplegable">
-                            Procesadores<i class="fas fa-angle-down"></i>
+                        <li className="desplegable">
+                            Procesadores<i className="fas fa-angle-down"></i>
                             <ul>
                                 <li>
                                     <a href="views/cpusAmd.html">AMD</a>
@@ -54,8 +54,8 @@ let NavBar = () => {
                         <li>
                             <a href="views/monitors.html">Monitores</a>
                         </li>
-                        <li class="desplegable">
-                            Otros<i class="fas fa-angle-down"></i>
+                        <li className="desplegable">
+                            Otros<i className="fas fa-angle-down"></i>
                             <ul>
                                 <li>
                                     <a href="views/computerCases.html">Gabinetes</a>
