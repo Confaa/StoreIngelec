@@ -4,7 +4,7 @@ import "./ItemDetail.scss";
 let ItemDetail = ({ prod }) => {
     return (
         <div className="itemDetallado">
-            <img src={prod.img}></img>
+            <img src={prod.img} alt=""></img>
             <p>Titulo: {prod.title}</p>
             <p>Marca: {prod.brand}</p>
             <p>Potencia: {prod.powerage}A</p>

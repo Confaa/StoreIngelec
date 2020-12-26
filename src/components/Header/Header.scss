@@ -1,0 +1,10 @@
+header {
+    background-color: #2871cc;
+    position: sticky;
+    top: 0;
+    z-index: 9998;
+    .superior {
+        display: flex;
+        justify-content: space-between;
+    }
+}
