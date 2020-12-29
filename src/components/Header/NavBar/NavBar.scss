@@ -11,7 +11,7 @@
             flex-direction: column;
             align-items: center;
             position: relative;
-            padding: 1rem /* 1.5rem */;
+            padding: 1rem;
             color: white;
             width: 100%;
             text-align: center;
@@ -22,9 +22,11 @@
                 justify-content: space-between;
                 align-items: center;
                 width: 100%;
-                p {
+                a {
                     display: inline;
                     margin: 0;
+                    color: white;
+                    text-decoration: none;
                 }
                 i {
                     transition: 0.4s all linear;
@@ -54,6 +56,9 @@
         span {
             i {
                 transform: rotate(90deg);
+            }
+            a {
+                color: #2871cc;
             }
         }
         > ul {

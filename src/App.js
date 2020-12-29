@@ -1,16 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.scss";
-import Home from "./components/Home/Home.js";
-import ItemCount from "./components/ItemCount/ItemCount.js";
 import Header from "./components/Header/Header";
+import Main from "./components/Main/Main";
+import Footer from "./components/Footer/Footer";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
-    const handleAdd = () => {};
+    const [linksGenerales, setLinksGenerales] = useState(["Home", "Productos", "Mi Cuenta"]);
+    const [linksProductos, setLinksProductos] = useState([
+        "Contactores",
+        "Termomagneticas",
+        "Relevos Termicos",
+        "Guardamotores",
+        "Cables"
+    ]);
     return (
         <div className="container-fluid">
-            <Header />
-            <Home />
-            <ItemCount onAdd={handleAdd} initialValue={0} maxValue={5} />
+            <BrowserRouter>
+                <Header linksGenerales={linksGenerales} linksProductos={linksProductos} />
+                <Main />
+                <Footer linksGenerales={linksGenerales} />
+            </BrowserRouter>
         </div>
     );
 }

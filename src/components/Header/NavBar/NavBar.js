@@ -1,65 +1,42 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./NavBar.scss";
 
-let NavBar = () => {
+let NavBar = ({ linksGenerales, linksProductos }) => {
     return (
         <nav id="NavBar" className="container">
             <ul>
-                <li>
-                    <span>
-                        <p>Contactores</p>
-                        <i className="fas fa-angle-right"></i>
-                    </span>
-                    <ul>
-                        <li>A</li>
-                        <li>B</li>
-                        <li>C</li>
-                    </ul>
-                </li>
-                <li>
-                    <span>
-                        <p>Termomagneticas</p>
-                        <i className="fas fa-angle-right"></i>
-                    </span>
-                    <ul>
-                        <li>A</li>
-                        <li>B</li>
-                        <li>C</li>
-                    </ul>
-                </li>
-                <li>
-                    <span>
-                        <p>Relevos termicos</p>
-                        <i className="fas fa-angle-right"></i>
-                    </span>
-                    <ul>
-                        <li>A</li>
-                        <li>B</li>
-                        <li>C</li>
-                    </ul>
-                </li>
-                <li>
-                    <span>
-                        <p>Guardamotores</p>
-                        <i className="fas fa-angle-right"></i>
-                    </span>
-                    <ul>
-                        <li>A</li>
-                        <li>B</li>
-                        <li>C</li>
-                    </ul>
-                </li>
-                <li>
-                    <span>
-                        <p>Cables</p>
-                        <i className="fas fa-angle-right"></i>
-                    </span>
-                    <ul>
-                        <li>A</li>
-                        <li>B</li>
-                        <li>C</li>
-                    </ul>
-                </li>
+                {linksGenerales.map((link, indice) => {
+                    return (
+                        <li>
+                            <span>
+                                <Link to={"/" + link} key={indice}>
+                                    {link}
+                                </Link>
+                                <i className="fas fa-angle-right"></i>
+                            </span>
+                        </li>
+                    );
+                })}
+            </ul>
+            <ul>
+                {linksProductos.map((link, indice) => {
+                    return (
+                        <li>
+                            <span>
+                                <Link to={"/" + link} key={indice}>
+                                    {link}
+                                </Link>
+                                <i className="fas fa-angle-right"></i>
+                            </span>
+                            <ul>
+                                <li>A</li>
+                                <li>B</li>
+                                <li>C</li>
+                            </ul>
+                        </li>
+                    );
+                })}
             </ul>
         </nav>
     );
