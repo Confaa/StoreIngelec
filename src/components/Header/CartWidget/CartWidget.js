@@ -5,9 +5,9 @@ let CartWidget = () => {
     return (
         <section id="CartWidget">
             <p>Carrito</p>
-            <div class="carritoNavBar">
+            <div className="carritoNavBar">
                 <a href="carrito.html">
-                    <i class="fas fa-shopping-cart"></i>
+                    <i className="fas fa-shopping-cart"></i>
                 </a>
             </div>
         </section>

@@ -19,7 +19,7 @@ const ItemCount = ({ initialValue, maxValue, onAdd }) => {
             setContador(contador - 1);
             setStock(stock + 1);
             document.getElementById("demo").innerHTML = "";
-        } else if (contador == 5) {
+        } else if (contador === 5) {
             setContador(contador - 1);
             setStock(stock + 1);
         }
