@@ -1,15 +1,31 @@
 import React from "react";
-import { Router } from "react-router-dom";
-import Home from "./Home/Home";
-import ItemCount from "./ItemCount/ItemCount";
+import { Route, Switch } from "react-router-dom";
+
+import Productos from "./Productos/Productos";
+import Cuenta from "./Cuenta/Cuenta";
+import ItemListContainer from "./ItemListContainer/ItemListContainer";
+import ItemDetailContainer from "./ItemDetailContainer/ItemDetailContainer";
+
 const Main = () => {
     return (
         <div>
-            <Router></Router>
-
-            <Router></Router>
-
-            <Router></Router>
+            <Switch>
+                <Route path="/" exact>
+                    <ItemListContainer />
+                </Route>
+                <Route path="/category/:id" exact>
+                    <ItemListContainer />
+                </Route>
+                <Route path="/Productos">
+                    <Productos />
+                </Route>
+                <Route path="/Cuenta">
+                    <Cuenta />
+                </Route>
+                <Route path="/item/:id">
+                    <ItemDetailContainer />
+                </Route>
+            </Switch>
         </div>
     );
 };

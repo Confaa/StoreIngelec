@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./NavBar.scss";
 
 let NavBar = ({ linksGenerales, linksProductos }) => {
@@ -7,12 +7,13 @@ let NavBar = ({ linksGenerales, linksProductos }) => {
         <nav id="NavBar" className="container">
             <ul>
                 {linksGenerales.map((link, indice) => {
+                    let menu = indice === 0 ? "" : link;
                     return (
                         <li>
                             <span>
-                                <Link to={"/" + link} key={indice}>
+                                <NavLink to={"/" + menu} key={indice} exact>
                                     {link}
-                                </Link>
+                                </NavLink>
                                 <i className="fas fa-angle-right"></i>
                             </span>
                         </li>
@@ -24,9 +25,9 @@ let NavBar = ({ linksGenerales, linksProductos }) => {
                     return (
                         <li>
                             <span>
-                                <Link to={"/" + link} key={indice}>
+                                <NavLink to={"/category/" + link} key={indice} exact>
                                     {link}
-                                </Link>
+                                </NavLink>
                                 <i className="fas fa-angle-right"></i>
                             </span>
                             <ul>

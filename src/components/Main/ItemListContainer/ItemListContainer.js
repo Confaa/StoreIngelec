@@ -6,7 +6,6 @@ let ItemListContainer = ({ parrafo }) => {
     return (
         <section className="itemsList">
             <p>{parrafo}</p>
-
             <ItemList />
         </section>
     );

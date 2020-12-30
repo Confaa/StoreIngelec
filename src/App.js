@@ -6,13 +6,13 @@ import Footer from "./components/Footer/Footer";
 import { BrowserRouter } from "react-router-dom";
 
 function App() {
-    const [linksGenerales, setLinksGenerales] = useState(["Home", "Productos", "Mi Cuenta"]);
+    const [linksGenerales, setLinksGenerales] = useState(["Home", "Productos", "Cuenta"]);
     const [linksProductos, setLinksProductos] = useState([
         "Contactores",
         "Termomagneticas",
         "Relevos Termicos",
-        "Guardamotores",
-        "Cables"
+        "Guardamotores" /* ,
+        "Cables" */
     ]);
     return (
         <div className="container-fluid">

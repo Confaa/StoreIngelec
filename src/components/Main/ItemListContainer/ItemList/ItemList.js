@@ -25,9 +25,11 @@ let ItemList = () => {
                 lista.map((elemento, index) => (
                     <Item
                         key={index}
+                        img={elemento.img}
                         titulo={elemento.title}
                         descripcion={elemento.description}
                         precio={elemento.price}
+                        id={elemento.id}
                     />
                 ))
             ) : (
