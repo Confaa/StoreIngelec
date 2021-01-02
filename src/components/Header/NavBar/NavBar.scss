@@ -1,12 +1,12 @@
 #NavBar {
-    ul {
+    > ul {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
         list-style: none;
         margin: 0;
         padding: 0;
-        li {
+        > li {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -33,37 +33,24 @@
                     font-size: 1.5rem;
                 }
             }
+        }
+        > li:hover {
+            background-color: white;
+            color: #2871cc;
+            border-radius: 5px;
+            span {
+                i {
+                    transform: rotate(90deg);
+                }
+                a {
+                    color: #2871cc;
+                }
+            }
             > ul {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                background-color: rgba(#2871cc, 0.9);
-                border-bottom-left-radius: 5px;
-                border-bottom-right-radius: 5px;
-                max-height: 0;
-                width: 100%;
-                overflow: hidden;
-                color: white;
-                transition: 0.5s all ease;
-                transform: translateY(2.5rem);
+                visibility: visible;
+                transition-delay: 0.2s;
+                opacity: 1;
             }
-        }
-    }
-    li:hover {
-        background-color: white;
-        color: #2871cc;
-        border-radius: 5px;
-        span {
-            i {
-                transform: rotate(90deg);
-            }
-            a {
-                color: #2871cc;
-            }
-        }
-        > ul {
-            transition-delay: 0.3s;
-            max-height: 500px;
         }
     }
 }

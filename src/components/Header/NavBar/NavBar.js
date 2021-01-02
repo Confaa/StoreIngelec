@@ -1,8 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./NavBar.scss";
+import SubNavBar from "./SubNavBar/SubNavBar";
 
-let NavBar = ({ linksGenerales, linksProductos }) => {
+let NavBar = ({ linksGenerales, linksCategorias, linksAcc }) => {
     return (
         <nav id="NavBar" className="container">
             <ul>
@@ -16,25 +17,11 @@ let NavBar = ({ linksGenerales, linksProductos }) => {
                                 </NavLink>
                                 <i className="fas fa-angle-right"></i>
                             </span>
-                        </li>
-                    );
-                })}
-            </ul>
-            <ul>
-                {linksProductos.map((link, indice) => {
-                    return (
-                        <li>
-                            <span>
-                                <NavLink to={"/category/" + link} key={indice} exact>
-                                    {link}
-                                </NavLink>
-                                <i className="fas fa-angle-right"></i>
-                            </span>
-                            <ul>
-                                <li>A</li>
-                                <li>B</li>
-                                <li>C</li>
-                            </ul>
+                            {link === "Productos" ? (
+                                <SubNavBar linksCategorias={linksCategorias} linksAcc={linksAcc} />
+                            ) : (
+                                ""
+                            )}
                         </li>
                     );
                 })}
@@ -42,4 +29,5 @@ let NavBar = ({ linksGenerales, linksProductos }) => {
         </nav>
     );
 };
+
 export default NavBar;

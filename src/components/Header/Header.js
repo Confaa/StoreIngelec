@@ -4,14 +4,18 @@ import NavBar from "./NavBar/NavBar";
 import CartWidget from "./CartWidget/CartWidget";
 import Logo from "./Logo/Logo";
 
-let Header = ({ linksGenerales, linksProductos }) => {
+let Header = ({ linksGenerales, linksCategorias, linksAcc }) => {
     return (
         <header>
             <div className="superior container">
                 <Logo />
                 <CartWidget />
             </div>
-            <NavBar linksGenerales={linksGenerales} linksProductos={linksProductos} />
+            <NavBar
+                linksGenerales={linksGenerales}
+                linksCategorias={linksCategorias}
+                linksAcc={linksAcc}
+            />
         </header>
     );
 };
