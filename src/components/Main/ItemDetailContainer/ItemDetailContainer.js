@@ -8,7 +8,7 @@ let ItemDetailContainer = () => {
     const { id } = useParams();
     React.useEffect(() => {
         setTimeout(() => {
-            fetch("https://5fe2ac177a9487001768274d.mockapi.io/product")
+            fetch("https://5fe2ac177a9487001768274d.mockapi.io/Accionamientos")
                 .then((response) => {
                     return response.json();
                 })

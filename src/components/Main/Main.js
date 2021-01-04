@@ -16,6 +16,9 @@ const Main = () => {
                 <Route path="/category/:id" exact>
                     <ItemListContainer />
                 </Route>
+                <Route path="/category/:id/:subid" exact>
+                    <ItemListContainer />
+                </Route>
                 <Route path="/Productos">
                     <Productos />
                 </Route>

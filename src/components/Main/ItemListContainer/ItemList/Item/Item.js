@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 let Item = ({ img, titulo, descripcion, precio, id }) => {
     return (
         <div className="producto">
-            <img src={img} alt="" />
+            <img src={img} loading="lazy" alt="" />
             <p>Titulo: {titulo}</p>
             <p>Descripcion: {descripcion}</p>
             <p>Precio: ${precio}</p>
