@@ -6,7 +6,7 @@ const ItemCount = ({ initialValue, maxValue, onAdd }) => {
     const [stock, setStock] = useState(maxValue);
 
     const aumentarContador = () => {
-        if (stock > 0 && contador < 5) {
+        if (stock > 0 && contador < maxValue) {
             setContador(contador + 1);
             setStock(stock - 1);
         } else {
@@ -15,11 +15,11 @@ const ItemCount = ({ initialValue, maxValue, onAdd }) => {
     };
 
     const restarContador = () => {
-        if (contador > 0 && stock < 6) {
+        if (contador > 0 && stock < maxValue) {
             setContador(contador - 1);
             setStock(stock + 1);
             document.getElementById("demo").innerHTML = "";
-        } else if (contador === 5) {
+        } else if (contador === maxValue) {
             setContador(contador - 1);
             setStock(stock + 1);
         }
@@ -27,14 +27,18 @@ const ItemCount = ({ initialValue, maxValue, onAdd }) => {
 
     return (
         <div className="contador">
-            <p> Elementos: {contador} </p>
-            <button className="elemento" onClick={aumentarContador}>
-                {" "}
-                Agregar elemento{" "}
-            </button>
-            <button className="elemento" onClick={restarContador}>
-                {" "}
-                Quitar elemento
+            <span>
+                <button className="btn btn-primary" onClick={restarContador}>
+                    <i className="fas fa-minus"></i>
+                </button>
+                <p>{contador}</p>
+                <button className="btn btn-primary" onClick={aumentarContador}>
+                    <i className="fas fa-plus"></i>
+                </button>
+            </span>
+            <button className="btn btn-success" onClick={onAdd} value={contador}>
+                Comprar
+                <i className="fas fa-shopping-cart"></i>
             </button>
             <p id="demo"></p>
         </div>

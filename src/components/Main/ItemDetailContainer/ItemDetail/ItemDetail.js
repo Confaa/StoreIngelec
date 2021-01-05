@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ItemDetail.scss";
-
+import ItemCount from "../../ItemCount/ItemCount";
+import { Link } from "react-router-dom";
 let ItemDetail = ({ prod }) => {
-    console.log(prod);
+    const [cant, setCant] = useState(false);
+
+    const onAdd = (e) => {
+        e.stopPropagation();
+        setCant(e.target.value);
+    };
+    console.log(cant);
 
     return (
-        <span className="ItemDetail">
+        <span id="ItemDetail">
             <img src={prod.img} alt=""></img>
             <p>Titulo: {prod.title}</p>
             <p>Marca: {prod.brand}</p>
@@ -21,12 +28,17 @@ let ItemDetail = ({ prod }) => {
                 <p>Seccion: {prod.section} mm.</p>
             ) : null}
 
-            {/* <p>Potencia: {prod.powerage}</p> */}
-
             <p>Descripcion: {prod.description}</p>
             <p>Stock: {prod.stock}</p>
             <p>Precio: {prod.price}$</p>
             <p>Codigo de producto: {prod.id}</p>
+            {!cant ? (
+                <ItemCount initialValue={1} maxValue={prod.stock} onAdd={onAdd} />
+            ) : (
+                <Link to="/cart" className="terminarCompra">
+                    Terminar compra
+                </Link>
+            )}
         </span>
     );
 };

@@ -1,17 +1,26 @@
 .contador {
+    display: flex;
+    flex-direction: column;
     text-align: center;
+
     p {
         font-size: 30px;
         font-weight: bold;
+        margin: 0;
+        display: inline;
     }
-
-    .elemento {
-        background-color: #2871cc;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        margin: 5px;
+    span {
+        border: 2px solid black;
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-rows: auto;
+        margin: 0.2rem 0;
+        justify-content: center;
+        align-items: center;
         border-radius: 5px;
+        button {
+            font-size: 1.2rem;
+            height: 100%;
+        }
     }
 }

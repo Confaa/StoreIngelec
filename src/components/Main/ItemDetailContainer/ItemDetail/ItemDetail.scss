@@ -1,4 +1,4 @@
-.ItemDetail {
+#ItemDetail {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -8,5 +8,12 @@
     border-radius: 10px;
     img {
         width: 400px;
+    }
+    .terminarCompra {
+        padding: 1rem;
+        background-color: #28a745;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
     }
 }

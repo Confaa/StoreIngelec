@@ -31,7 +31,7 @@ let ItemDetailContainer = () => {
                         setItem(data);
                     });
             }
-        }, 3000);
+        }, 2000);
     }, [id]);
 
     return (

@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import "./CartWidget.scss";
 
 let CartWidget = () => {
@@ -6,9 +7,9 @@ let CartWidget = () => {
         <section id="CartWidget">
             <p>Carrito</p>
             <div className="carritoNavBar">
-                <a href="carrito.html">
+                <NavLink to="/cart">
                     <i className="fas fa-shopping-cart"></i>
-                </a>
+                </NavLink>
             </div>
         </section>
     );

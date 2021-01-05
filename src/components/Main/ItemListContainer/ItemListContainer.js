@@ -62,7 +62,7 @@ let ItemListContainer = ({ parrafo, es }) => {
                         setLista(data);
                     });
             }
-        }, 3000);
+        }, 2000);
     }, [id, subid]);
 
     return (
