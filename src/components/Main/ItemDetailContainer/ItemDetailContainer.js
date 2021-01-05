@@ -2,7 +2,7 @@ import React from "react";
 import "./ItemDetailContainer.scss";
 import ItemDetail from "./ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
-import Example from "../../../widget/Example";
+import ChargeAnimation from "../../../widget/ChargeAnimation";
 
 let ItemDetailContainer = () => {
     const [item, setItem] = React.useState(false);
@@ -35,11 +35,13 @@ let ItemDetailContainer = () => {
     }, [id]);
 
     return (
-        <>
-            <span>
-                {item ? <ItemDetail prod={item[0]} /> : <Example type={"spin"} color={"#000000"} />}
-            </span>
-        </>
+        <div id="ItemDetailContainer">
+            {item ? (
+                <ItemDetail prod={item[0]} />
+            ) : (
+                <ChargeAnimation type={"spin"} color={"#000000"} />
+            )}
+        </div>
     );
 };
 

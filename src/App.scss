@@ -2,9 +2,16 @@
     margin: 0;
     padding: 0;
 }
-.root {
+#root {
     background-color: white;
+    /* min-height: 100vh; */
 }
 .container-fluid {
     padding: 0;
+}
+.grilla {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: auto;
+    min-height: 100vh;
 }

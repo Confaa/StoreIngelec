@@ -10,6 +10,7 @@ let ItemListContainer = ({ parrafo, es }) => {
 
     React.useEffect(() => {
         let aux = [];
+        setLista(false); /* HICE ESTO PARA QUE EN CADA CONSULTA CARGA ALLA UNA ANIMACION DE CARGA */
         setTimeout(() => {
             if (id === undefined && subid === undefined) {
                 fetch(`https://5fe2ac177a9487001768274d.mockapi.io/Accionamientos`)

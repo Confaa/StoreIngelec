@@ -5,7 +5,7 @@ let ItemDetail = ({ prod }) => {
     console.log(prod);
 
     return (
-        <div className="itemDetallado">
+        <span className="ItemDetail">
             <img src={prod.img} alt=""></img>
             <p>Titulo: {prod.title}</p>
             <p>Marca: {prod.brand}</p>
@@ -27,7 +27,7 @@ let ItemDetail = ({ prod }) => {
             <p>Stock: {prod.stock}</p>
             <p>Precio: {prod.price}$</p>
             <p>Codigo de producto: {prod.id}</p>
-        </div>
+        </span>
     );
 };
 

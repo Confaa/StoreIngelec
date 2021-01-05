@@ -5,10 +5,11 @@ import Productos from "./Productos/Productos";
 import Cuenta from "./Cuenta/Cuenta";
 import ItemListContainer from "./ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./ItemDetailContainer/ItemDetailContainer";
+import "./Main.scss";
 
 const Main = () => {
     return (
-        <div>
+        <main>
             <Switch>
                 <Route path="/" exact>
                     <ItemListContainer />
@@ -29,7 +30,7 @@ const Main = () => {
                     <ItemDetailContainer />
                 </Route>
             </Switch>
-        </div>
+        </main>
     );
 };
 

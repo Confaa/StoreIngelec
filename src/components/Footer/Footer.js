@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Footer.scss";
 
 const Footer = ({ linksGenerales }) => {
@@ -8,11 +8,12 @@ const Footer = ({ linksGenerales }) => {
             <p>Copyright 2020</p>
             <ul>
                 {linksGenerales.map((link, indice) => {
+                    let menu = indice === 0 ? "" : link;
                     return (
                         <li>
-                            <Link to={"/" + link} key={indice}>
+                            <NavLink to={"/" + menu} key={indice} exact>
                                 {link}
-                            </Link>
+                            </NavLink>
                         </li>
                     );
                 })}

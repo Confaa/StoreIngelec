@@ -25,7 +25,7 @@ function App() {
     /* const [tipos, setTipos] = useState([linksAcc, linksMotores, linksCables]); */
     const productos = [linksAcc, linksMotores, linksCables];
     return (
-        <div className="container-fluid">
+        <div className="container-fluid grilla">
             <BrowserRouter>
                 <Header
                     linksGenerales={linksGenerales}
