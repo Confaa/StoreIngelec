@@ -2,6 +2,7 @@
 import React from "react";
 import "./ItemList.scss";
 import Item from "./Item/Item";
+import Example from "../../../../widget/Example";
 
 let ItemList = ({ lista }) => {
     return (
@@ -18,7 +19,7 @@ let ItemList = ({ lista }) => {
                     />
                 ))
             ) : (
-                <p>Cargando productos</p>
+                <Example type={"spin"} color={"#000000"} />
             )}
         </div>
     );
