@@ -2,7 +2,7 @@
 import React from "react";
 import "./ItemList.scss";
 import Item from "./Item/Item";
-import ChargeAnimation from "../../../../widget/ChargeAnimation";
+import ChargeAnimation from "../../../widget/ChargeAnimation";
 
 let ItemList = ({ lista }) => {
     return (

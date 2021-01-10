@@ -1,6 +1,6 @@
 import React from "react";
 import "./Logo.scss";
-import logoIngelecblanco1px from "../../../img/logoIngelecblanco1px.svg";
+import logoIngelecblanco1px from "../../../assets/img/logoIngelecblanco1px.svg";
 import { Link } from "react-router-dom";
 
 let Logo = () => {
