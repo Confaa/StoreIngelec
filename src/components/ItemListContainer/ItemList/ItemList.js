@@ -2,7 +2,7 @@
 import React from "react";
 import "./ItemList.scss";
 import Item from "./Item/Item";
-import ChargeAnimation from "../../../widget/ChargeAnimation";
+import ChargeAnimation from "widget/ChargeAnimation";
 
 let ItemList = ({ lista }) => {
     return (
@@ -10,7 +10,7 @@ let ItemList = ({ lista }) => {
             {lista ? (
                 lista.map((elemento, index) => (
                     <Item
-                        key={index}
+                        key={elemento.id}
                         img={elemento.img}
                         titulo={elemento.title}
                         descripcion={elemento.description}

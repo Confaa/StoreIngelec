@@ -2,7 +2,7 @@ import React from "react";
 import "./ItemDetailContainer.scss";
 import ItemDetail from "./ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
-import ChargeAnimation from "../../widget/ChargeAnimation";
+import ChargeAnimation from "widget/ChargeAnimation";
 
 let ItemDetailContainer = () => {
     const [item, setItem] = React.useState(false);

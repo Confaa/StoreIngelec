@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./ItemDetail.scss";
-import ItemCount from "../../ItemCount/ItemCount";
+import ItemCount from "components/ItemCount/ItemCount";
 import { Link } from "react-router-dom";
 let ItemDetail = ({ prod }) => {
     const [cant, setCant] = useState(false);

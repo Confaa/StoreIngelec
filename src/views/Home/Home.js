@@ -1,6 +1,6 @@
 import React from "react";
 import "./Home.scss";
-import ItemListContainer from "../../components/Main/ItemListContainer/ItemListContainer.js";
+import ItemListContainer from "components/Main/ItemListContainer/ItemListContainer.js";
 
 let Home = () => {
     return (

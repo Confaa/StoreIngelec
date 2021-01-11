@@ -1,10 +1,10 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 
-import Productos from "../../views/Productos/Productos";
-import Cuenta from "../../views/Cuenta/Cuenta";
-import ItemListContainer from "../../components/ItemListContainer/ItemListContainer";
-import ItemDetailContainer from "../../components/ItemDetailContainer/ItemDetailContainer";
+import Productos from "views/Productos/Productos";
+import Cuenta from "views/Cuenta/Cuenta";
+import ItemListContainer from "components/ItemListContainer/ItemListContainer";
+import ItemDetailContainer from "components/ItemDetailContainer/ItemDetailContainer";
 import "./Main.scss";
 
 const Main = () => {
