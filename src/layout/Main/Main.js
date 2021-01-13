@@ -6,10 +6,11 @@ import Cuenta from "views/Cuenta/Cuenta";
 import ItemListContainer from "components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "components/ItemDetailContainer/ItemDetailContainer";
 import "./Main.scss";
+import CartContainer from "components/CartContainer/CartContainer";
 
 const Main = () => {
     return (
-        <main>
+        <main className="container">
             <Switch>
                 <Route path="/" exact>
                     <ItemListContainer />
@@ -28,6 +29,9 @@ const Main = () => {
                 </Route>
                 <Route path="/item/:id">
                     <ItemDetailContainer />
+                </Route>
+                <Route path="/Cart">
+                    <CartContainer />
                 </Route>
             </Switch>
         </main>

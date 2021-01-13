@@ -1,15 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./ItemDetail.scss";
 import ItemCount from "components/ItemCount/ItemCount";
 import { Link } from "react-router-dom";
+import cartContext from "context/CartContext";
+
 let ItemDetail = ({ prod }) => {
+    const { addItem } = useContext(cartContext);
     const [cant, setCant] = useState(false);
+
+    useEffect(() => {
+        console.log(cant);
+    }, [cant]);
 
     const onAdd = (e) => {
         e.stopPropagation();
-        setCant(e.target.value);
+        setCant(Number(e.target.value));
+        addItem(prod, Number(e.target.value));
     };
-    console.log(cant);
 
     return (
         <span id="ItemDetail">
@@ -35,9 +42,14 @@ let ItemDetail = ({ prod }) => {
             {!cant ? (
                 <ItemCount initialValue={1} maxValue={prod.stock} onAdd={onAdd} />
             ) : (
-                <Link to="/cart" className="terminarCompra">
-                    Terminar compra
-                </Link>
+                <div className="buttons">
+                    <Link to="/" className="terminarCompra">
+                        Seguir Comprando
+                    </Link>
+                    <Link to="/Cart" className="terminarCompra">
+                        Terminar compra
+                    </Link>
+                </div>
             )}
         </span>
     );

@@ -4,6 +4,7 @@ import Header from "layout/Header/Header";
 import Main from "layout/Main/Main";
 import Footer from "layout/Footer/Footer";
 import { BrowserRouter } from "react-router-dom";
+import CustomProviderCart from "context/CustomProviderCart";
 
 function App() {
     const [linksGenerales, setLinksGenerales] = useState(["Home", "Productos", "Cuenta"]);
@@ -32,7 +33,9 @@ function App() {
                     linksCategorias={linksCategorias}
                     linksAcc={productos}
                 />
-                <Main />
+                <CustomProviderCart>
+                    <Main />
+                </CustomProviderCart>
                 <Footer linksGenerales={linksGenerales} />
             </BrowserRouter>
         </div>

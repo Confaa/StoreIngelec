@@ -7,7 +7,7 @@ let CartWidget = () => {
         <section id="CartWidget">
             <p>Carrito</p>
             <div className="carritoNavBar">
-                <NavLink to="/cart">
+                <NavLink to="/Cart">
                     <i className="fas fa-shopping-cart"></i>
                 </NavLink>
             </div>

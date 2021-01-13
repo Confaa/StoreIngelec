@@ -1,0 +1,19 @@
+#CartList {
+    > div {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    > span {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        p {
+            font-size: 2rem;
+            width: 100%;
+        }
+        button {
+            width: 50%;
+        }
+    }
+}
