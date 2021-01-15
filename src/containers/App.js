@@ -7,7 +7,11 @@ import { BrowserRouter } from "react-router-dom";
 import CustomProviderCart from "context/CustomProviderCart";
 
 function App() {
-    const [linksGenerales, setLinksGenerales] = useState(["Home", "Productos", "Cuenta"]);
+    const [linksGenerales, setLinksGenerales] = useState([
+        "Home",
+        "Productos",
+        "Cuenta"
+    ]);
     const [linksCategorias, setLinksCategorias] = useState([
         "Accionamientos",
         "Motores Electricos",
@@ -21,19 +25,23 @@ function App() {
         "Guardamotores"
     ]);
     const [linksMotores, setLinksMotores] = useState(["Motores Trifasicos"]);
-    const [linksCables, setLinksCables] = useState(["Unipolares", "Tipo Taller", "Subterraneos"]);
+    const [linksCables, setLinksCables] = useState([
+        "Unipolares",
+        "Tipo Taller",
+        "Subterraneos"
+    ]);
 
     /* const [tipos, setTipos] = useState([linksAcc, linksMotores, linksCables]); */
     const productos = [linksAcc, linksMotores, linksCables];
     return (
         <div className="container-fluid grilla">
             <BrowserRouter>
-                <Header
-                    linksGenerales={linksGenerales}
-                    linksCategorias={linksCategorias}
-                    linksAcc={productos}
-                />
                 <CustomProviderCart>
+                    <Header
+                        linksGenerales={linksGenerales}
+                        linksCategorias={linksCategorias}
+                        linksAcc={productos}
+                    />
                     <Main />
                 </CustomProviderCart>
                 <Footer linksGenerales={linksGenerales} />

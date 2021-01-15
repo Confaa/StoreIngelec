@@ -3,6 +3,7 @@ import { Provider } from "context/CartContext.js";
 const CustomProviderCart = ({ children }) => {
     const [carrito, setCarrito] = useState([]);
     const [totalCompra, setTotalCompra] = useState(0);
+    const [cantidad, setCantidad] = useState(0);
     let aux = carrito;
 
     const addItem = (item, quantity) => {
@@ -48,17 +49,22 @@ const CustomProviderCart = ({ children }) => {
     };
 
     const calcularTotal = (carrito) => {
-        let sumador = 0;
+        let importe = 0;
+        let cant = 0;
+
         carrito.forEach((element) => {
-            sumador += element.quantity * element.item.price;
+            importe += element.quantity * element.item.price;
+            cant += element.quantity;
         });
-        setTotalCompra(sumador);
+        setTotalCompra(importe);
+        setCantidad(cant);
     };
     return (
         <Provider
             value={{
                 carrito: carrito,
                 totalCompra: totalCompra,
+                cantidad: cantidad,
                 addItem: addItem,
                 removeItem: removeItem,
                 clear: clear

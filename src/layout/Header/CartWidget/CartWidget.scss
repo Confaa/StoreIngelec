@@ -11,4 +11,16 @@
         margin: 0;
         padding-right: 1rem;
     }
+    .carritoNavBar {
+        position: relative;
+        .contador {
+            position: absolute;
+            height: 1.5rem;
+            width: 1.5rem;
+            border-radius: 5px;
+            background-color: red;
+            z-index: 999;
+            transform: translate(2rem, -3rem);
+        }
+    }
 }

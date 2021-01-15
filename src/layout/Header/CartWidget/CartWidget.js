@@ -1,16 +1,25 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import cartContext from "context/CartContext";
 import { NavLink } from "react-router-dom";
 import "./CartWidget.scss";
 
 let CartWidget = () => {
+    const { cantidad } = useContext(cartContext);
     return (
         <section id="CartWidget">
-            <p>Carrito</p>
-            <div className="carritoNavBar">
-                <NavLink to="/Cart">
-                    <i className="fas fa-shopping-cart"></i>
-                </NavLink>
-            </div>
+            {cantidad === 0 ? null : (
+                <>
+                    <p>Carrito</p>
+                    <div className="carritoNavBar">
+                        <NavLink to="/Cart">
+                            <i className="fas fa-shopping-cart"></i>
+                        </NavLink>
+                        <span className="contador">
+                            {cantidad === 0 ? null : cantidad}
+                        </span>
+                    </div>
+                </>
+            )}
         </section>
     );
 };

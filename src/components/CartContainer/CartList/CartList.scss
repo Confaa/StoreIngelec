@@ -1,19 +1,28 @@
 #CartList {
+    height: 100%;
     > div {
         display: flex;
         flex-direction: column;
+        height: 100%;
         flex-wrap: wrap;
-    }
-    > span {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        p {
-            font-size: 2rem;
-            width: 100%;
+        .carritoVacio {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
-        button {
-            width: 50%;
+        .botonesCarrito {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            p {
+                font-size: 2rem;
+                width: 100%;
+            }
+            button {
+                width: 50%;
+            }
         }
     }
 }
