@@ -2,6 +2,7 @@ import React from "react";
 import "./ItemListContainer.scss";
 import ItemList from "./ItemList/ItemList";
 import { useParams } from "react-router-dom";
+import { getFirestore } from "firebase/firebaseSetup.js";
 
 let ItemListContainer = ({ parrafo }) => {
     const [lista, setLista] = React.useState(false);
@@ -9,67 +10,66 @@ let ItemListContainer = ({ parrafo }) => {
 
     React.useEffect(() => {
         let aux = [];
-        setLista(
-            false
-        ); /* HICE ESTO PARA QUE EN CADA CONSULTA CARGA ALLA UNA ANIMACION DE CARGA */
+        setLista(false);
+
         setTimeout(() => {
+            const db = getFirestore();
             if (id === undefined && subid === undefined) {
-                fetch(
-                    `https://5fe2ac177a9487001768274d.mockapi.io/Accionamientos`
-                )
-                    .then((response) => {
-                        return response.json();
-                    })
-                    .then((data) => {
-                        data.forEach((element) => {
-                            aux.push(element);
+                const query = db.collection("productos").get();
+
+                query
+                    .then((res) => {
+                        console.log(res);
+                        res.docs.forEach((doc) => {
+                            let item = { id: doc.id, ...doc.data() };
+                            aux.push(item);
                         });
+                        console.log(aux);
                         setLista(aux);
-                        return fetch(
-                            `https://5fe2ac177a9487001768274d.mockapi.io/MotoresElectricos`
-                        );
                     })
-                    .then((response) => {
-                        return response.json();
-                    })
-                    .then((data) => {
-                        data.forEach((element) => {
-                            aux.push(element);
-                        });
-                        setLista(aux);
-                        return fetch(
-                            `https://5fe2ac177a9487001768274d.mockapi.io/Cables`
-                        );
-                    })
-                    .then((response) => {
-                        return response.json();
-                    })
-                    .then((data) => {
-                        data.forEach((element) => {
-                            aux.push(element);
-                        });
-                        setLista(aux);
+                    .catch((err) => {
+                        console.log(err);
                     });
             } else if (typeof id === "string" && subid === undefined) {
-                fetch(`https://5fe2ac177a9487001768274d.mockapi.io/${id}`)
-                    .then((response) => {
-                        return response.json();
+                const query = db
+                    .collection("productos")
+                    .where("category", "==", `${id}`)
+                    .get();
+
+                query
+                    .then((res) => {
+                        console.log(res.docs);
+                        res.docs.forEach((doc) => {
+                            let item = { id: doc.id, ...doc.data() };
+                            aux.push(item);
+                        });
+                        console.log(aux);
+                        setLista(aux);
                     })
-                    .then((data) => {
-                        setLista(data);
+                    .catch((err) => {
+                        console.log(err);
                     });
             } else if (typeof id === "string" && typeof subid === "string") {
-                fetch(
-                    `https://5fe2ac177a9487001768274d.mockapi.io/${id}?type=${subid}`
-                )
-                    .then((response) => {
-                        return response.json();
+                const query = db
+                    .collection("productos")
+                    .where("type", "==", `${subid}`)
+                    .get();
+
+                query
+                    .then((res) => {
+                        console.log(res.docs);
+                        res.docs.forEach((doc) => {
+                            let item = { id: doc.id, ...doc.data() };
+                            aux.push(item);
+                        });
+                        console.log(aux);
+                        setLista(aux);
                     })
-                    .then((data) => {
-                        setLista(data);
+                    .catch((err) => {
+                        console.log(err);
                     });
             }
-        }, 2000);
+        }, 3000);
     }, [id, subid]);
 
     return (
