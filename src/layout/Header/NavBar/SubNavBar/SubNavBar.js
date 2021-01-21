@@ -27,6 +27,7 @@ const SubNavBar = ({ linksCategorias, linksAcc }) => {
                                                     "/" +
                                                     subLink.replace(/ /g, "")
                                                 }
+                                                key={subLink + indice}
                                             >
                                                 {subLink}
                                             </NavLink>

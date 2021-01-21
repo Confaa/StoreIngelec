@@ -1,32 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./ItemDetailContainer.scss";
 import ItemDetail from "./ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
 import ChargeAnimation from "widget/ChargeAnimation";
-import { getFirestore } from "firebase/firebaseSetup.js";
+import productContext from "context/ProductContext/ProductContext";
 
 let ItemDetailContainer = () => {
     const [item, setItem] = React.useState(false);
     const { id } = useParams();
+    const { productos } = useContext(productContext);
     React.useEffect(() => {
-        setTimeout(() => {
-            const db = getFirestore();
-            let query = db.collection("productos").doc(id).get();
-            query
-                .then((data) => {
-                    let datosProductos = data.data();
-                    return datosProductos;
-                })
-                .then((datos) => {
-                    setItem({ id: id, ...datos });
-                });
-        }, 3000);
-    }, [id]);
-
+        if (productos) {
+            setTimeout(() => {
+                let aux;
+                aux = productos.filter((prod) => prod.id === id);
+                setItem(aux);
+                console.log(aux);
+            }, 1500);
+        }
+    }, [id, productos]);
     return (
         <div id="ItemDetailContainer">
             {item ? (
-                <ItemDetail prod={item} />
+                <ItemDetail prod={item[0]} />
             ) : (
                 <ChargeAnimation type={"spin"} color={"#000000"} />
             )}

@@ -77,7 +77,7 @@ const CustomProviderCart = ({ children }) => {
 
 export default CustomProviderCart;
 
-const ProductoEnCarrito = (item, quantity) => {
+/* const ProductoEnCarrito = (item, quantity) => {
     this.item = item;
     this.quantity = quantity;
-};
+}; */

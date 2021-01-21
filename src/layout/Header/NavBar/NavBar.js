@@ -12,7 +12,7 @@ let NavBar = ({ linksGenerales, linksCategorias, linksAcc }) => {
                     return (
                         <li>
                             <span>
-                                <NavLink to={"/" + menu} key={indice} exact>
+                                <NavLink to={"/" + menu} key={menu + indice} exact>
                                     {link}
                                 </NavLink>
                                 <i className="fas fa-angle-right"></i>

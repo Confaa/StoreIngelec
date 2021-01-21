@@ -8,16 +8,12 @@ let ItemDetail = ({ prod }) => {
     const { addItem } = useContext(cartContext);
     const [cant, setCant] = useState(false);
 
-    useEffect(() => {
-        console.log(cant);
-    }, [cant]);
-
     const onAdd = (e) => {
         e.stopPropagation();
         setCant(Number(e.target.value));
         addItem(prod, Number(e.target.value));
     };
-
+    console.log(prod);
     return (
         <span id="ItemDetail">
             <img src={prod.img} alt=""></img>

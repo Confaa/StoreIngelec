@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import Productos from "views/Productos/Productos";
@@ -7,32 +7,26 @@ import ItemListContainer from "components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "components/ItemDetailContainer/ItemDetailContainer";
 import "./Main.scss";
 import CartContainer from "components/CartContainer/CartContainer";
+/* import { getFirestore } from "firebase/firebaseSetup";
+import productContext from "context/ProductContext/ProductContext"; */
 
 const Main = () => {
     return (
         <main className="container">
             <Switch>
-                <Route path="/" exact>
-                    <ItemListContainer />
-                </Route>
-                <Route path="/category/:id" exact>
-                    <ItemListContainer />
-                </Route>
-                <Route path="/category/:id/:subid" exact>
-                    <ItemListContainer />
-                </Route>
-                <Route path="/Productos">
-                    <Productos />
-                </Route>
-                <Route path="/Cuenta">
-                    <Cuenta />
-                </Route>
-                <Route path="/item/:id">
-                    <ItemDetailContainer />
-                </Route>
-                <Route path="/Cart">
-                    <CartContainer />
-                </Route>
+                <Route path="/" exact component={ItemListContainer} />
+
+                <Route path="/category/:id" exact component={ItemListContainer} />
+
+                <Route path="/category/:id/:subid" exact component={ItemListContainer} />
+
+                <Route path="/Productos" component={Productos} />
+
+                <Route path="/Cuenta" component={Cuenta} />
+
+                <Route path="/item/:id" component={ItemDetailContainer} />
+
+                <Route path="/Cart" component={CartContainer} />
             </Switch>
         </main>
     );

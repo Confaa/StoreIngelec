@@ -1,19 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import productContext from "context/ProductContext/ProductContext";
 import "./Productos.scss";
+import ChargeAnimation from "widget/ChargeAnimation";
+
 const Productos = () => {
-    /* const [resultado, setResultado] = useState(""); */
-    useEffect(() => {
-        let llamadaProductos = new Promise((pass, err) => {
-            /* fetch(""); */
-        });
-        llamadaProductos.then((pass) => {
-            console.log(pass);
-        });
-    }, []);
+    const { productos } = useContext(productContext);
 
     return (
         <div>
-            <h1>Productos</h1>
+            {productos ? (
+                productos.map((element) => {
+                    return <p>{element.id}</p>;
+                })
+            ) : (
+                <ChargeAnimation type={"spin"} color={"#000000"} />
+            )}
         </div>
     );
 };
