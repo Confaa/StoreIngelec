@@ -1,15 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 
 import "./CartItem.scss";
-const CartItem = ({
-    img,
-    id,
-    title,
-    category,
-    quantity,
-    price,
-    borrarItem
-}) => {
+const CartItem = ({ img, id, title, category, quantity, price, borrarItem }) => {
     return (
         <div id="CartItem">
             <img src={img} className="img-fluid" alt="" />

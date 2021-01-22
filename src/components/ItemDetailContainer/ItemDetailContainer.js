@@ -15,7 +15,6 @@ let ItemDetailContainer = () => {
                 let aux;
                 aux = productos.filter((prod) => prod.id === id);
                 setItem(aux);
-                console.log(aux);
             }, 1500);
         }
     }, [id, productos]);

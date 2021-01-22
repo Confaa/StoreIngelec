@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Provider } from "context/CartContext.js";
+import { Provider } from "context/CartContext/CartContext.js";
 const CustomProviderCart = ({ children }) => {
     const [carrito, setCarrito] = useState([]);
     const [totalCompra, setTotalCompra] = useState(0);
@@ -25,8 +25,7 @@ const CustomProviderCart = ({ children }) => {
 
     const removeItem = (itemId) => {
         //REMOVER ITEM POR ID
-        console.log(itemId);
-        aux = aux.filter((aux) => aux.item.id != itemId);
+        aux = aux.filter((aux) => aux.item.id !== itemId);
         setCarrito(aux);
         calcularTotal(aux);
     };
@@ -42,7 +41,6 @@ const CustomProviderCart = ({ children }) => {
         carrito.forEach((element) => {
             if (id === element.item.id) {
                 inCart = true;
-                console.log("ESTA EN EL CARRITO");
             }
         });
         return inCart;
@@ -76,8 +74,3 @@ const CustomProviderCart = ({ children }) => {
 };
 
 export default CustomProviderCart;
-
-/* const ProductoEnCarrito = (item, quantity) => {
-    this.item = item;
-    this.quantity = quantity;
-}; */

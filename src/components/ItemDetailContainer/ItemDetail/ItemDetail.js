@@ -1,8 +1,8 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import "./ItemDetail.scss";
 import ItemCount from "components/ItemCount/ItemCount";
 import { Link } from "react-router-dom";
-import cartContext from "context/CartContext";
+import cartContext from "context/CartContext/CartContext";
 
 let ItemDetail = ({ prod }) => {
     const { addItem } = useContext(cartContext);
@@ -13,7 +13,6 @@ let ItemDetail = ({ prod }) => {
         setCant(Number(e.target.value));
         addItem(prod, Number(e.target.value));
     };
-    console.log(prod);
     return (
         <span id="ItemDetail">
             <img src={prod.img} alt=""></img>

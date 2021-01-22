@@ -4,7 +4,7 @@ import Header from "layout/Header/Header";
 import Main from "layout/Main/Main";
 import Footer from "layout/Footer/Footer";
 import { BrowserRouter } from "react-router-dom";
-import CustomProviderCart from "context/CustomProviderCart";
+import CustomProviderCart from "context/CartContext/CustomProviderCart";
 import CustomProviderProducts from "context/ProductContext/CustomProviderProducts";
 
 function App() {

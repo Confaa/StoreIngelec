@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import { Route, Switch } from "react-router-dom";
 
 import Productos from "views/Productos/Productos";
@@ -7,8 +7,6 @@ import ItemListContainer from "components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "components/ItemDetailContainer/ItemDetailContainer";
 import "./Main.scss";
 import CartContainer from "components/CartContainer/CartContainer";
-/* import { getFirestore } from "firebase/firebaseSetup";
-import productContext from "context/ProductContext/ProductContext"; */
 
 const Main = () => {
     return (

@@ -1,13 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import CartItem from "./CartItem/CartItem";
-import cartContext from "context/CartContext";
+import cartContext from "context/CartContext/CartContext";
 import "./CartList.scss";
 import { Link } from "react-router-dom";
 
 const CartList = () => {
-    const { carrito, removeItem, clear, totalCompra, cantidad } = useContext(
-        cartContext
-    );
+    const { carrito, removeItem, clear, totalCompra, cantidad } = useContext(cartContext);
 
     const borrarItem = (e) => {
         e.stopPropagation();
@@ -47,9 +45,7 @@ const CartList = () => {
                             <button className="btn btn-primary" onClick={clear}>
                                 Vaciar Carrito
                             </button>
-                            <button className="btn btn-success">
-                                Terminar Compra
-                            </button>
+                            <button className="btn btn-success">Terminar Compra</button>
                         </span>
                     </>
                 )}

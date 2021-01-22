@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import cartContext from "context/CartContext";
+import React, { useContext } from "react";
+import cartContext from "context/CartContext/CartContext";
 import { NavLink } from "react-router-dom";
 import "./CartWidget.scss";
 
@@ -14,9 +14,7 @@ let CartWidget = () => {
                         <NavLink to="/Cart">
                             <i className="fas fa-shopping-cart"></i>
                         </NavLink>
-                        <span className="contador">
-                            {cantidad === 0 ? null : cantidad}
-                        </span>
+                        <span className="contador">{cantidad === 0 ? null : cantidad}</span>
                     </div>
                 </>
             )}

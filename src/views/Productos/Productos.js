@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import productContext from "context/ProductContext/ProductContext";
 import "./Productos.scss";
 import ChargeAnimation from "widget/ChargeAnimation";
