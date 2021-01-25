@@ -3,6 +3,7 @@ import CartItem from "./CartItem/CartItem";
 import cartContext from "context/CartContext/CartContext";
 import "./CartList.scss";
 import { Link } from "react-router-dom";
+import BuyerForm from "../BuyerForm/BuyerForm";
 
 const CartList = () => {
     const { carrito, removeItem, clear, totalCompra, cantidad } = useContext(cartContext);
@@ -45,7 +46,6 @@ const CartList = () => {
                             <button className="btn btn-primary" onClick={clear}>
                                 Vaciar Carrito
                             </button>
-                            <button className="btn btn-success">Terminar Compra</button>
                         </span>
                     </>
                 )}

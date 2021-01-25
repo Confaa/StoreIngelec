@@ -1,0 +1,17 @@
+#BuyerForm {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid blue;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-top: 2rem;
+    text-align: center;
+    input {
+        margin-bottom: 1rem;
+    }
+    > span {
+        button {
+            width: 50%;
+        }
+    }
+}

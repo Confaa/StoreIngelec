@@ -1,14 +1,23 @@
 import React, { useState } from "react";
 import { Provider } from "context/CartContext/CartContext.js";
+import { getFirestore } from "firebase/firebaseSetup";
 const CustomProviderCart = ({ children }) => {
     const [carrito, setCarrito] = useState([]);
     const [totalCompra, setTotalCompra] = useState(0);
     const [cantidad, setCantidad] = useState(0);
+    const [nombre, setNombre] = useState("");
+    const [telefono, setTelefono] = useState("");
+    const [email, setEmail] = useState("");
+    const [fecha, setFecha] = useState("");
     let aux = carrito;
 
     const addItem = (item, quantity) => {
         //AGREGAR ITEM SEGUN CANTIDAD
-        let producto = { item, quantity };
+        let producto = {
+            item: { id: item.id, title: item.title, price: item.price },
+            quantity: quantity
+        };
+        console.log(producto);
         let enCarrito = isInCart(producto.item.id);
         if (enCarrito) {
             carrito.forEach((element, index) => {
@@ -46,6 +55,12 @@ const CustomProviderCart = ({ children }) => {
         return inCart;
     };
 
+    const fechaCompra = () => {
+        let fecha = new Date();
+
+        console.log(fecha.toUTCString());
+        setFecha(fecha.toUTCString());
+    };
     const calcularTotal = (carrito) => {
         let importe = 0;
         let cant = 0;
@@ -57,6 +72,44 @@ const CustomProviderCart = ({ children }) => {
         setTotalCompra(importe);
         setCantidad(cant);
     };
+    const finalizarCompra = (e) => {
+        e.preventDefault();
+        let itemsEnCompra = carrito.map((element) => {
+            return {
+                id: element.item.id,
+                title: element.item.title,
+                price: element.item.price * element.quantity,
+                quantity: element.quantity
+            };
+        });
+        const datosCompra = {
+            buyer: {
+                name: nombre,
+                telefono: telefono,
+                email: email
+            },
+            items: { ...itemsEnCompra },
+            date: fecha,
+            total: totalCompra
+        };
+        console.log(datosCompra);
+        console.log(e);
+
+        const db = getFirestore();
+        const orderCollection = db.collection("orders");
+        orderCollection
+            .add(datosCompra)
+            .then((resultado) => {
+                console.log(resultado.id);
+                alert("Compra finalizada!");
+                alert(`ID de compra ${resultado.id}`);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
+
+    let formFunctions = { setNombre, setTelefono, setEmail, fechaCompra };
     return (
         <Provider
             value={{
@@ -65,7 +118,9 @@ const CustomProviderCart = ({ children }) => {
                 cantidad: cantidad,
                 addItem: addItem,
                 removeItem: removeItem,
-                clear: clear
+                clear: clear,
+                formFunctions: formFunctions,
+                finalizarCompra: finalizarCompra
             }}
         >
             {children}

@@ -14,7 +14,7 @@ let CartWidget = () => {
                         <NavLink to="/Cart">
                             <i className="fas fa-shopping-cart"></i>
                         </NavLink>
-                        <span className="contador">{cantidad === 0 ? null : cantidad}</span>
+                        <span className="contador">{cantidad}</span>
                     </div>
                 </>
             )}
