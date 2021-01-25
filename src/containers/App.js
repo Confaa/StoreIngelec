@@ -29,16 +29,16 @@ function App() {
     return (
         <div className="container-fluid grilla">
             <BrowserRouter>
-                <CustomProviderCart>
-                    <Header
-                        linksGenerales={linksGenerales}
-                        linksCategorias={linksCategorias}
-                        linksAcc={productos}
-                    />
-                    <CustomProviderProducts>
+                <CustomProviderProducts>
+                    <CustomProviderCart>
+                        <Header
+                            linksGenerales={linksGenerales}
+                            linksCategorias={linksCategorias}
+                            linksAcc={productos}
+                        />
                         <Main />
-                    </CustomProviderProducts>
-                </CustomProviderCart>
+                    </CustomProviderCart>
+                </CustomProviderProducts>
                 <Footer linksGenerales={linksGenerales} />
             </BrowserRouter>
         </div>

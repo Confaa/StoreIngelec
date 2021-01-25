@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Provider } from "context/CartContext/CartContext.js";
 import { getFirestore } from "firebase/firebaseSetup";
+import productContext from "context/ProductContext/ProductContext";
 const CustomProviderCart = ({ children }) => {
     const [carrito, setCarrito] = useState([]);
     const [totalCompra, setTotalCompra] = useState(0);
@@ -9,6 +10,9 @@ const CustomProviderCart = ({ children }) => {
     const [telefono, setTelefono] = useState("");
     const [email, setEmail] = useState("");
     const [fecha, setFecha] = useState("");
+
+    const { updateStock } = useContext(productContext);
+
     let aux = carrito;
 
     const addItem = (item, quantity) => {
@@ -103,6 +107,8 @@ const CustomProviderCart = ({ children }) => {
                 console.log(resultado.id);
                 alert("Compra finalizada!");
                 alert(`ID de compra ${resultado.id}`);
+                updateStock(carrito);
+                clear();
             })
             .catch((err) => {
                 console.log(err);
