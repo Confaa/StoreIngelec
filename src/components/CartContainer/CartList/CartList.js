@@ -25,6 +25,7 @@ const CartList = ({ carrito }) => {
                             quantity={element.quantity}
                             price={element.item.price}
                             borrarItem={borrarItem}
+                            key={element.item.id}
                         />
                     );
                 })}

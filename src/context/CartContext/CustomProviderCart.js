@@ -9,7 +9,9 @@ const CustomProviderCart = ({ children }) => {
     const [nombre, setNombre] = useState("");
     const [telefono, setTelefono] = useState("");
     const [email, setEmail] = useState("");
+    const [repEmail, setRepEmail] = useState("");
     const [fecha, setFecha] = useState("");
+    const [idCompra, setIdCompra] = useState(false);
 
     const { updateStock } = useContext(productContext);
 
@@ -47,6 +49,7 @@ const CustomProviderCart = ({ children }) => {
         //BORRAR TODOS LOS ITEMS
         setCarrito([]);
         calcularTotal([]);
+        setIdCompra(false);
     };
 
     const isInCart = (id) => {
@@ -78,44 +81,48 @@ const CustomProviderCart = ({ children }) => {
     };
     const finalizarCompra = (e) => {
         e.preventDefault();
-        let itemsEnCompra = carrito.map((element) => {
-            return {
-                id: element.item.id,
-                title: element.item.title,
-                price: element.item.price * element.quantity,
-                quantity: element.quantity
-            };
-        });
-        const datosCompra = {
-            buyer: {
-                name: nombre,
-                telefono: telefono,
-                email: email
-            },
-            items: { ...itemsEnCompra },
-            date: fecha,
-            total: totalCompra
-        };
-        console.log(datosCompra);
-        console.log(e);
-
-        const db = getFirestore();
-        const orderCollection = db.collection("orders");
-        orderCollection
-            .add(datosCompra)
-            .then((resultado) => {
-                console.log(resultado.id);
-                alert("Compra finalizada!");
-                alert(`ID de compra ${resultado.id}`);
-                updateStock(carrito);
-                clear();
-            })
-            .catch((err) => {
-                console.log(err);
+        if (email !== repEmail) {
+            alert("Compruebe el email cargado");
+        } else {
+            let itemsEnCompra = carrito.map((element) => {
+                return {
+                    id: element.item.id,
+                    title: element.item.title,
+                    price: element.item.price * element.quantity,
+                    quantity: element.quantity
+                };
             });
+            const datosCompra = {
+                buyer: {
+                    name: nombre,
+                    telefono: telefono,
+                    email: email
+                },
+                items: { ...itemsEnCompra },
+                date: fecha,
+                total: totalCompra
+            };
+            console.log(datosCompra);
+            console.log(e);
+
+            const db = getFirestore();
+            const orderCollection = db.collection("orders");
+            orderCollection
+                .add(datosCompra)
+                .then((resultado) => {
+                    console.log(resultado.id);
+                    alert("Compra finalizada!");
+                    /* alert(`ID de compra ${resultado.id}`); */
+                    setIdCompra(resultado.id);
+                    updateStock(carrito);
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        }
     };
 
-    let formFunctions = { setNombre, setTelefono, setEmail, fechaCompra };
+    let formFunctions = { setNombre, setTelefono, setEmail, setRepEmail, fechaCompra };
     return (
         <Provider
             value={{
@@ -126,7 +133,9 @@ const CustomProviderCart = ({ children }) => {
                 removeItem: removeItem,
                 clear: clear,
                 formFunctions: formFunctions,
-                finalizarCompra: finalizarCompra
+                finalizarCompra: finalizarCompra,
+                idCompra: idCompra,
+                setIdCompra: setIdCompra
             }}
         >
             {children}

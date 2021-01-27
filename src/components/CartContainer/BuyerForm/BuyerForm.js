@@ -4,7 +4,7 @@ import "./BuyerForm.scss";
 
 const BuyerForm = () => {
     const { finalizarCompra, formFunctions } = useContext(cartContext);
-    const { setNombre, setTelefono, setEmail, fechaCompra } = formFunctions;
+    const { setNombre, setTelefono, setEmail, setRepEmail, fechaCompra } = formFunctions;
 
     return (
         <form onSubmit={finalizarCompra} id="BuyerForm">
@@ -29,6 +29,13 @@ const BuyerForm = () => {
                     setEmail(e.target.value);
                 }}
                 placeholder="Email"
+            />
+            <input
+                type="email"
+                onChange={(e) => {
+                    setRepEmail(e.target.value);
+                }}
+                placeholder="Repetir Email"
             />
             <span>
                 <button type="reset" className="btn btn-primary">

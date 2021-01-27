@@ -10,8 +10,8 @@ const Footer = ({ linksGenerales }) => {
                 {linksGenerales.map((link, indice) => {
                     let menu = indice === 0 ? "" : link;
                     return (
-                        <li>
-                            <NavLink to={"/" + menu} key={indice} exact>
+                        <li key={link}>
+                            <NavLink to={"/" + menu} exact>
                                 {link}
                             </NavLink>
                         </li>

@@ -8,16 +8,18 @@ let ItemList = ({ lista }) => {
     return (
         <div className="grillaProductos">
             {lista ? (
-                lista.map((elemento, index) => (
-                    <Item
-                        key={elemento.id}
-                        img={elemento.img}
-                        titulo={elemento.title}
-                        descripcion={elemento.description}
-                        precio={elemento.price}
-                        id={elemento.id}
-                    />
-                ))
+                lista.map((elemento) => {
+                    return (
+                        <Item
+                            img={elemento.img}
+                            titulo={elemento.title}
+                            descripcion={elemento.description}
+                            precio={elemento.price}
+                            id={elemento.id}
+                            key={elemento.id}
+                        />
+                    );
+                })
             ) : (
                 <ChargeAnimation type={"spin"} color={"#000000"} />
             )}

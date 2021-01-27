@@ -10,9 +10,9 @@ let NavBar = ({ linksGenerales, linksCategorias, linksAcc }) => {
                 {linksGenerales.map((link, indice) => {
                     let menu = indice === 0 ? "" : link;
                     return (
-                        <li>
+                        <li key={menu}>
                             <span>
-                                <NavLink to={"/" + menu} key={menu + indice} exact>
+                                <NavLink to={"/" + menu} exact>
                                     {link}
                                 </NavLink>
                                 <i className="fas fa-angle-right"></i>

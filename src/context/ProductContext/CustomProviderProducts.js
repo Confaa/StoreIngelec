@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Provider } from "context/ProductContext/ProductContext";
 import { getFirestore } from "firebase/firebaseSetup";
-import Productos from "views/Productos/Productos";
 
 const CustomProviderProducts = ({ children }) => {
     const [productos, setProductos] = useState(false);

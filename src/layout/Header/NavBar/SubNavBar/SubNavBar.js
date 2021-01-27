@@ -4,42 +4,35 @@ import "./SubNavBar.scss";
 
 const SubNavBar = ({ linksCategorias, linksAcc }) => {
     return (
-        <>
-            <ul id="SubNavBar">
-                {linksCategorias.map((link, indice) => {
-                    return (
-                        <li>
-                            <NavLink
-                                to={"/category/" + link.replace(/ /g, "")}
-                                key={link + indice}
-                                exact
-                            >
-                                {link}
-                            </NavLink>
-                            <ul>
-                                {linksAcc[indice].map((subLink) => {
-                                    return (
-                                        <li>
-                                            <NavLink
-                                                to={
-                                                    "/category/" +
-                                                    link.replace(/ /g, "") +
-                                                    "/" +
-                                                    subLink.replace(/ /g, "")
-                                                }
-                                                key={subLink + indice}
-                                            >
-                                                {subLink}
-                                            </NavLink>
-                                        </li>
-                                    );
-                                })}
-                            </ul>
-                        </li>
-                    );
-                })}
-            </ul>
-        </>
+        <ul id="SubNavBar">
+            {linksCategorias.map((link, indice) => {
+                return (
+                    <li key={link}>
+                        <NavLink to={"/category/" + link.replace(/ /g, "")} exact>
+                            {link}
+                        </NavLink>
+                        <ul>
+                            {linksAcc[indice].map((subLink) => {
+                                return (
+                                    <li key={subLink}>
+                                        <NavLink
+                                            to={
+                                                "/category/" +
+                                                link.replace(/ /g, "") +
+                                                "/" +
+                                                subLink.replace(/ /g, "")
+                                            }
+                                        >
+                                            {subLink}
+                                        </NavLink>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </li>
+                );
+            })}
+        </ul>
     );
 };
 
