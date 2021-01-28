@@ -21,6 +21,12 @@ const CartContainer = () => {
             setShow(false);
         }
     }, [idCompra]);
+
+    const ModalContent = {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center"
+    };
     return (
         <section id="CartContainer">
             {carrito.length === 0 ? (
@@ -45,10 +51,17 @@ const CartContainer = () => {
                         aria-labelledby="contained-modal-title-vcenter"
                         centered
                     >
-                        <Modal.Header closeButton>
-                            <Modal.Title>Modal heading</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>{idCompra}</Modal.Body>
+                        <Modal.Header closeButton></Modal.Header>
+                        <Modal.Body>
+                            <span style={ModalContent}>
+                                <i
+                                    className="fas fa-check-circle"
+                                    style={{ fontSize: 50, color: "green" }}
+                                ></i>
+                                <h3>Compra realizada con exito</h3>
+                                <p>El id de su compra: {idCompra}</p>
+                            </span>
+                        </Modal.Body>
                         <Modal.Footer>
                             <Button
                                 variant="secondary"
@@ -58,15 +71,6 @@ const CartContainer = () => {
                                 }}
                             >
                                 Close
-                            </Button>
-                            <Button
-                                variant="primary"
-                                onClick={() => {
-                                    setShow(false);
-                                    clearCart();
-                                }}
-                            >
-                                Save Changes
                             </Button>
                         </Modal.Footer>
                     </Modal>

@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import "./ItemDetail.scss";
-import ItemCount from "components/ItemCount/ItemCount";
+import ItemCount from "components/ItemDetailContainer/ItemDetail/ItemCount/ItemCount";
 import { Link } from "react-router-dom";
 import cartContext from "context/CartContext/CartContext";
 
@@ -31,11 +31,15 @@ let ItemDetail = ({ prod }) => {
             ) : null}
 
             <p>Descripcion: {prod.description}</p>
-            <p>Stock: {prod.stock}</p>
+            <p>Stock: {isNaN(prod.stock) ? 0 : prod.stock}</p>
             <p>Precio: {prod.price}$</p>
             <p>Codigo de producto: {prod.id}</p>
             {!cant ? (
-                <ItemCount initialValue={1} maxValue={prod.stock} onAdd={onAdd} />
+                <ItemCount
+                    initialValue={isNaN(prod.stock) || prod.stock === 0 ? 0 : 1}
+                    maxValue={prod.stock}
+                    onAdd={onAdd}
+                />
             ) : (
                 <div className="buttons">
                     <Link to="/" className="terminarCompra">

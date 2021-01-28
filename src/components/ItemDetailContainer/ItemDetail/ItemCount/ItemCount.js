@@ -31,7 +31,7 @@ const ItemCount = ({ initialValue, maxValue, onAdd }) => {
                 <button className="btn btn-primary" onClick={restarContador}>
                     <i className="fas fa-minus"></i>
                 </button>
-                <p>{contador}</p>
+                <input type="text" value={contador} />
                 <button className="btn btn-primary" onClick={aumentarContador}>
                     <i className="fas fa-plus"></i>
                 </button>
