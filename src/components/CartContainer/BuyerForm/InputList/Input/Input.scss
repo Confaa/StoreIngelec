@@ -1,0 +1,29 @@
+.inp {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    label {
+        display: block;
+        text-align: left;
+        font-weight: 700;
+    }
+    input {
+        line-height: 2.5rem;
+        min-height: 2.5rem;
+        transition: 0.2s all ease;
+        border: 3px solid transparent;
+        border-radius: 0.2rem;
+        padding-left: 0.5rem;
+        &:focus {
+            border: 3px solid orange;
+            outline: none;
+            box-shadow: 3px 0px 30px rgba(163, 163, 163, 0.5);
+        }
+    }
+    p {
+        margin: 0;
+        padding: 0.5rem;
+        font-size: 0.8rem;
+        text-align: left;
+    }
+}

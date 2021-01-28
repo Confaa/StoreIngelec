@@ -10,12 +10,16 @@ import Resume from "./Summary/Summary";
 import { Modal, Button } from "react-bootstrap";
 
 const CartContainer = () => {
-    const { carrito, idCompra, clear } = useContext(cartContext);
+    const { carrito, idCompra, clearCart } = useContext(cartContext);
 
     const [show, setShow] = useState();
 
     useEffect(() => {
-        setShow(idCompra);
+        if (typeof idCompra === "string") {
+            setShow(true);
+        } else {
+            setShow(false);
+        }
     }, [idCompra]);
     return (
         <section id="CartContainer">
@@ -31,19 +35,11 @@ const CartContainer = () => {
                     <CartList carrito={carrito} />
                     <Resume />
                     <BuyerForm />
-                    <Button
-                        variant="primary"
-                        onClick={() => {
-                            setShow(true);
-                        }}
-                    >
-                        Launch demo modal
-                    </Button>
                     <Modal
                         show={show}
                         onHide={() => {
                             setShow(false);
-                            clear();
+                            clearCart();
                         }}
                         size="lg"
                         aria-labelledby="contained-modal-title-vcenter"
@@ -58,7 +54,7 @@ const CartContainer = () => {
                                 variant="secondary"
                                 onClick={() => {
                                     setShow(false);
-                                    clear();
+                                    clearCart();
                                 }}
                             >
                                 Close
@@ -67,7 +63,7 @@ const CartContainer = () => {
                                 variant="primary"
                                 onClick={() => {
                                     setShow(false);
-                                    clear();
+                                    clearCart();
                                 }}
                             >
                                 Save Changes

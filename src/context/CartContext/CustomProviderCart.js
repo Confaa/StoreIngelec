@@ -7,6 +7,7 @@ const CustomProviderCart = ({ children }) => {
     const [totalCompra, setTotalCompra] = useState(0);
     const [cantidad, setCantidad] = useState(0);
     const [nombre, setNombre] = useState("");
+
     const [telefono, setTelefono] = useState("");
     const [email, setEmail] = useState("");
     const [repEmail, setRepEmail] = useState("");
@@ -45,11 +46,18 @@ const CustomProviderCart = ({ children }) => {
         calcularTotal(aux);
     };
 
-    const clear = () => {
+    const clearCart = () => {
         //BORRAR TODOS LOS ITEMS
         setCarrito([]);
         calcularTotal([]);
         setIdCompra(false);
+    };
+
+    const clearForm = () => {
+        setNombre("");
+        setTelefono("");
+        setEmail("");
+        setRepEmail("");
     };
 
     const isInCart = (id) => {
@@ -112,7 +120,6 @@ const CustomProviderCart = ({ children }) => {
                 .then((resultado) => {
                     console.log(resultado.id);
                     alert("Compra finalizada!");
-                    /* alert(`ID de compra ${resultado.id}`); */
                     setIdCompra(resultado.id);
                     updateStock(carrito);
                 })
@@ -122,7 +129,18 @@ const CustomProviderCart = ({ children }) => {
         }
     };
 
-    let formFunctions = { setNombre, setTelefono, setEmail, setRepEmail, fechaCompra };
+    let form = {
+        nombre,
+        telefono,
+        email,
+        repEmail,
+        setNombre,
+        setTelefono,
+        setEmail,
+        setRepEmail,
+        fechaCompra,
+        clearForm
+    };
     return (
         <Provider
             value={{
@@ -131,11 +149,10 @@ const CustomProviderCart = ({ children }) => {
                 cantidad: cantidad,
                 addItem: addItem,
                 removeItem: removeItem,
-                clear: clear,
-                formFunctions: formFunctions,
+                clearCart: clearCart,
+                form: form,
                 finalizarCompra: finalizarCompra,
-                idCompra: idCompra,
-                setIdCompra: setIdCompra
+                idCompra: idCompra
             }}
         >
             {children}
