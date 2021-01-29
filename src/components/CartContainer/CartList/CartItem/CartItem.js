@@ -1,4 +1,6 @@
 import React from "react";
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./CartItem.scss";
 const CartItem = ({ img, id, title, category, quantity, price, borrarItem }) => {
@@ -13,7 +15,7 @@ const CartItem = ({ img, id, title, category, quantity, price, borrarItem }) => 
             <p>Cantidad: {quantity}</p>
             <p>Precio: ${price * quantity}</p>
             <button className="btn btn-danger" onClick={borrarItem} value={id}>
-                <i className="fas fa-trash-alt"></i>
+                <FontAwesomeIcon icon={faTrashAlt} />
             </button>
         </div>
     );

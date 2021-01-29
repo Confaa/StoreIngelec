@@ -4,6 +4,7 @@ import ItemDetail from "./ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
 import ChargeAnimation from "widget/ChargeAnimation";
 import productContext from "context/ProductContext/ProductContext";
+import NotExist from "../../widget/NotExist/NotExist";
 
 let ItemDetailContainer = () => {
     const [item, setItem] = React.useState(false);
@@ -14,16 +15,20 @@ let ItemDetailContainer = () => {
             setTimeout(() => {
                 let aux;
                 aux = productos.filter((prod) => prod.id === id);
-                setItem(aux);
+                aux.length === 0 ? setItem([]) : setItem(aux[0]);
+                console.log(aux);
             }, 1500);
         }
     }, [id, productos]);
+
     return (
         <div id="ItemDetailContainer">
-            {item ? (
-                <ItemDetail prod={item[0]} />
-            ) : (
+            {!item ? (
                 <ChargeAnimation type={"spin"} color={"#000000"} />
+            ) : item.length === 0 ? (
+                <NotExist />
+            ) : (
+                <ItemDetail prod={item} />
             )}
         </div>
     );

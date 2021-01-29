@@ -1,3 +1,5 @@
+import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./NavBar.scss";
@@ -15,7 +17,7 @@ let NavBar = ({ linksGenerales, linksCategorias, linksAcc }) => {
                                 <NavLink to={"/" + menu} exact>
                                     {link}
                                 </NavLink>
-                                <i className="fas fa-angle-right"></i>
+                                <FontAwesomeIcon icon={faAngleRight} />
                             </span>
                             {link === "Productos" ? (
                                 <SubNavBar linksCategorias={linksCategorias} linksAcc={linksAcc} />

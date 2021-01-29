@@ -1,4 +1,6 @@
 import { React, useState } from "react";
+import { faMinus, faPlus, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./ItemCount.scss";
 
 const ItemCount = ({ initialValue, maxValue, onAdd }) => {
@@ -29,16 +31,16 @@ const ItemCount = ({ initialValue, maxValue, onAdd }) => {
         <div className="contador">
             <span>
                 <button className="btn btn-primary" onClick={restarContador}>
-                    <i className="fas fa-minus"></i>
+                    <FontAwesomeIcon icon={faMinus} />
                 </button>
                 <input type="text" value={contador} />
                 <button className="btn btn-primary" onClick={aumentarContador}>
-                    <i className="fas fa-plus"></i>
+                    <FontAwesomeIcon icon={faPlus} />
                 </button>
             </span>
             <button className="btn btn-success" onClick={onAdd} value={contador}>
                 Comprar
-                <i className="fas fa-shopping-cart"></i>
+                <FontAwesomeIcon icon={faShoppingCart} />
             </button>
             <p id="demo"></p>
         </div>

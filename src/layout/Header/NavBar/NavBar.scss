@@ -28,7 +28,7 @@
                     color: white;
                     text-decoration: none;
                 }
-                i {
+                svg {
                     transition: 0.4s all linear;
                     font-size: 1.5rem;
                 }
@@ -39,7 +39,7 @@
             color: #2871cc;
             border-radius: 5px;
             span {
-                i {
+                svg {
                     transform: rotate(90deg);
                 }
                 a {
