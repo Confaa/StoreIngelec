@@ -108,7 +108,8 @@ const CustomProviderCart = ({ children }) => {
                 },
                 items: { ...itemsEnCompra },
                 date: fecha,
-                total: totalCompra
+                total: totalCompra,
+                status: "generated"
             };
             console.log(datosCompra);
             console.log(e);

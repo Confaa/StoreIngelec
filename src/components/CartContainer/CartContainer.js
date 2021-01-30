@@ -4,7 +4,6 @@ import cartContext from "context/CartContext/CartContext";
 import "./CartContainer.scss";
 
 import CartList from "./CartList/CartList";
-import { Link } from "react-router-dom";
 import Resume from "./Summary/Summary";
 
 import { Modal, Button } from "react-bootstrap";

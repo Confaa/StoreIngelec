@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./EmptyCart.scss";
-import personDollyEmpty from "assets/img/personDollyEmpty.svg";
 
 const EmptyCart = () => {
     return (

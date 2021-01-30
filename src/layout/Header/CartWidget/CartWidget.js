@@ -5,7 +5,7 @@ import "./CartWidget.scss";
 let CartWidget = () => {
     const { cantidad } = useContext(cartContext);
     return (
-        <section id="CartWidget">
+        <section id="cartWidget">
             {cantidad === 0 ? null : (
                 <>
                     <p>Carrito</p>
