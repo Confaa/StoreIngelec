@@ -1,3 +1,5 @@
+@import "assets/scss/colors.scss";
+
 #navBar {
     > ul {
         display: flex;
@@ -29,21 +31,24 @@
                     text-decoration: none;
                 }
                 svg {
+                    fill: white;
                     transition: 0.4s all linear;
-                    font-size: 1.5rem;
+                    height: 1.5rem;
+                    width: 1.5rem;
                 }
             }
         }
         > li:hover {
             background-color: white;
-            color: #2871cc;
+            color: $azulIngelec;
             border-radius: 5px;
             span {
                 svg {
                     transform: rotate(90deg);
+                    fill: $azulIngelec;
                 }
                 a {
-                    color: #2871cc;
+                    color: $azulIngelec;
                 }
             }
             > ul {
