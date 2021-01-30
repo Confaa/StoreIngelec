@@ -9,7 +9,7 @@ const BuyerForm = () => {
     const { finalizarCompra } = useContext(cartContext);
 
     return (
-        <form onSubmit={finalizarCompra} id="BuyerForm">
+        <form onSubmit={finalizarCompra} id="buyerForm">
             <p>Datos personales: </p>
             <InputList />
             <ButtonsForm />

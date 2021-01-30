@@ -2,11 +2,11 @@
 import React from "react";
 import "./ItemList.scss";
 import Item from "./Item/Item";
-import ChargeAnimation from "widget/ChargeAnimation";
+import ChargeAnimation from "widget/ChargeAnimation/ChargeAnimation";
 
 let ItemList = ({ lista }) => {
     return (
-        <div className="grillaProductos">
+        <div id="itemList">
             {lista ? (
                 lista.map((elemento) => {
                     return (

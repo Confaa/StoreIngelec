@@ -7,7 +7,7 @@ import SubNavBar from "./SubNavBar/SubNavBar";
 
 let NavBar = ({ linksGenerales, linksCategorias, linksAcc }) => {
     return (
-        <nav id="NavBar" className="container">
+        <nav id="navBar" className="container">
             <ul>
                 {linksGenerales.map((link, indice) => {
                     let menu = indice === 0 ? "" : link;

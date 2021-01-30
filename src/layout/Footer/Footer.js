@@ -4,7 +4,7 @@ import "./Footer.scss";
 
 const Footer = ({ linksGenerales }) => {
     return (
-        <footer id="Footer">
+        <footer>
             <p>Copyright 2020</p>
             <ul>
                 {linksGenerales.map((link, indice) => {

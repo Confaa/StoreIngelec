@@ -28,7 +28,7 @@ const ItemCount = ({ initialValue, maxValue, onAdd }) => {
     };
 
     return (
-        <div className="contador">
+        <div className="itemCount">
             <span>
                 <button className="btn btn-primary" onClick={restarContador}>
                     <FontAwesomeIcon icon={faMinus} />

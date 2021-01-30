@@ -14,7 +14,7 @@ let ItemDetail = ({ prod }) => {
         addItem(prod, Number(e.target.value));
     };
     return (
-        <span id="ItemDetail">
+        <span id="itemDetail">
             <img src={prod.img} alt=""></img>
             <p>Titulo: {prod.title}</p>
             <p>Marca: {prod.brand}</p>

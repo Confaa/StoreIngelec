@@ -12,7 +12,7 @@ const CartList = ({ carrito }) => {
     };
 
     return (
-        <div id="CartList">
+        <div id="cartList">
             <div>
                 <h1>Su compra:</h1>
                 {carrito.map((element) => {

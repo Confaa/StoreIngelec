@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "./ItemDetailContainer.scss";
 import ItemDetail from "./ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
-import ChargeAnimation from "widget/ChargeAnimation";
+import ChargeAnimation from "widget/ChargeAnimation/ChargeAnimation";
 import productContext from "context/ProductContext/ProductContext";
 import NotExist from "../../widget/NotExist/NotExist";
 
@@ -22,7 +22,7 @@ let ItemDetailContainer = () => {
     }, [id, productos]);
 
     return (
-        <div id="ItemDetailContainer">
+        <div id="itemDetailContainer">
             {!item ? (
                 <ChargeAnimation type={"spin"} color={"#000000"} />
             ) : item.length === 0 ? (

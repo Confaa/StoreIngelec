@@ -7,7 +7,7 @@ const ButtonsForm = () => {
     const { form } = useContext(cartContext);
     const { nombre, telefono, email, repEmail, fechaCompra, clearForm } = form;
     return (
-        <span id="ButtonForm">
+        <span id="buttonForm">
             <button type="reset" className="btn btn-primary" onClick={clearForm}>
                 Limpiar formulario
             </button>

@@ -40,7 +40,7 @@ const InputList = () => {
         }
     ];
     return (
-        <div id="InputList">
+        <div id="inputList">
             {parametrosInput.map((element) => {
                 return (
                     <Input

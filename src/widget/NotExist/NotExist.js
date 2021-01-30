@@ -7,7 +7,7 @@ import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 
 const NotExist = () => {
     return (
-        <div id="NotExist">
+        <div id="notExist">
             <FontAwesomeIcon
                 icon={faExclamationTriangle}
                 className="animate__animated animate__fadeIn"

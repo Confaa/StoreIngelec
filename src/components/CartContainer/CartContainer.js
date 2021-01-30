@@ -28,7 +28,7 @@ const CartContainer = () => {
         alignItems: "center"
     };
     return (
-        <section id="CartContainer">
+        <section id="cartContainer">
             {carrito.length === 0 ? (
                 <span className="carritoVacio">
                     <p>Ooops! Su carrito esta vacio.</p>

@@ -4,7 +4,7 @@ import ItemList from "./ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import productContext from "context/ProductContext/ProductContext";
 
-let ItemListContainer = ({ parrafo }) => {
+let ItemListContainer = () => {
     const [lista, setLista] = React.useState(false);
     const { id, subid } = useParams();
     const { productos } = useContext(productContext);
@@ -28,8 +28,7 @@ let ItemListContainer = ({ parrafo }) => {
     }, [id, subid, productos]);
 
     return (
-        <section className="itemsList">
-            <p>{parrafo}</p>
+        <section id="itemListContainer">
             <ItemList lista={lista} />
         </section>
     );

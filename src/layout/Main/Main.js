@@ -7,10 +7,11 @@ import ItemListContainer from "components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "components/ItemDetailContainer/ItemDetailContainer";
 import "./Main.scss";
 import CartContainer from "components/CartContainer/CartContainer";
+import { Container } from "react-bootstrap";
 
 const Main = () => {
     return (
-        <main className="container">
+        <Container>
             <Switch>
                 <Route path="/" exact component={ItemListContainer} />
 
@@ -26,7 +27,7 @@ const Main = () => {
 
                 <Route path="/Cart" component={CartContainer} />
             </Switch>
-        </main>
+        </Container>
     );
 };
 

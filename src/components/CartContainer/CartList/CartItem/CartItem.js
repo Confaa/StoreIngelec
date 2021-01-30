@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./CartItem.scss";
 const CartItem = ({ img, id, title, category, quantity, price, borrarItem }) => {
     return (
-        <div id="CartItem">
+        <div id="cartItem">
             <img src={img} className="img-fluid" alt="" />
             <span>
                 <p>Categoria: {category}</p>

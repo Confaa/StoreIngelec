@@ -4,7 +4,7 @@ import "./SubNavBar.scss";
 
 const SubNavBar = ({ linksCategorias, linksAcc }) => {
     return (
-        <ul id="SubNavBar">
+        <ul id="subNavBar">
             {linksCategorias.map((link, indice) => {
                 return (
                     <li key={link}>
