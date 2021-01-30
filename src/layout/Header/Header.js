@@ -3,14 +3,15 @@ import "./Header.scss";
 import NavBar from "./NavBar/NavBar";
 import CartWidget from "./CartWidget/CartWidget";
 import Logo from "./Logo/Logo";
+import { Container } from "react-bootstrap";
 
 let Header = ({ linksGenerales, linksCategorias, linksAcc }) => {
     return (
         <header>
-            <div className="superior container">
+            <Container className="superior">
                 <Logo />
                 <CartWidget />
-            </div>
+            </Container>
             <NavBar
                 linksGenerales={linksGenerales}
                 linksCategorias={linksCategorias}

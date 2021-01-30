@@ -6,6 +6,7 @@ import Footer from "layout/Footer/Footer";
 import { BrowserRouter } from "react-router-dom";
 import CustomProviderCart from "context/CartContext/CustomProviderCart";
 import CustomProviderProducts from "context/ProductContext/CustomProviderProducts";
+import { Container } from "react-bootstrap";
 
 function App() {
     const [linksGenerales, setLinksGenerales] = useState(["Home", "Productos", "Cuenta"]);
@@ -27,7 +28,7 @@ function App() {
     /* const [tipos, setTipos] = useState([linksAcc, linksMotores, linksCables]); */
     const productos = [linksAcc, linksMotores, linksCables];
     return (
-        <div className="container-fluid grilla">
+        <Container fluid className="grilla">
             <BrowserRouter>
                 <CustomProviderProducts>
                     <CustomProviderCart>
@@ -41,7 +42,7 @@ function App() {
                 </CustomProviderProducts>
                 <Footer linksGenerales={linksGenerales} />
             </BrowserRouter>
-        </div>
+        </Container>
     );
 }
 export default App;

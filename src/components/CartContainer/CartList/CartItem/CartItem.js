@@ -1,12 +1,13 @@
 import React from "react";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Button, Image } from "react-bootstrap";
 
 import "./CartItem.scss";
 const CartItem = ({ img, id, title, category, quantity, price, borrarItem }) => {
     return (
         <div id="cartItem">
-            <img src={img} className="img-fluid" alt="" />
+            <Image src={img} fluid alt="" />
             <span>
                 <p>Categoria: {category}</p>
                 <p>Producto: {title}</p>
@@ -14,9 +15,10 @@ const CartItem = ({ img, id, title, category, quantity, price, borrarItem }) => 
             </span>
             <p>Cantidad: {quantity}</p>
             <p>Precio: ${price * quantity}</p>
-            <button className="btn btn-danger" onClick={borrarItem} value={id}>
+
+            <Button variant="danger" onClick={borrarItem} value={id}>
                 <FontAwesomeIcon icon={faTrashAlt} />
-            </button>
+            </Button>
         </div>
     );
 };

@@ -1,11 +1,12 @@
 import React from "react";
-import ReactLoading from "react-loading";
+import { Spinner } from "react-bootstrap";
+
 import "./ChargeAnimation.scss";
 
 const ChargeAnimation = ({ type, color }) => {
     return (
-        <span id="ChargeAnimation">
-            <ReactLoading type={type} color={color} height={100} width={70} />
+        <span id="chargeAnimation">
+            <Spinner animation="border" variant="primary" role="status" />
         </span>
     );
 };

@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import Resume from "./Summary/Summary";
 
 import { Modal, Button } from "react-bootstrap";
+import EmptyCart from "./EmptyCart/EmptyCart";
 
 const CartContainer = () => {
     const { carrito, idCompra, clearCart } = useContext(cartContext);
@@ -30,12 +31,7 @@ const CartContainer = () => {
     return (
         <section id="cartContainer">
             {carrito.length === 0 ? (
-                <span className="carritoVacio">
-                    <p>Ooops! Su carrito esta vacio.</p>
-                    <Link to="/" className="btn btn-primary">
-                        Conozca nuestros productos !
-                    </Link>
-                </span>
+                <EmptyCart />
             ) : (
                 <>
                     <CartList carrito={carrito} />

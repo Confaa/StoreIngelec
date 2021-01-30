@@ -1,11 +1,8 @@
 import React from "react";
+import ChargeAnimation from "widget/ChargeAnimation/ChargeAnimation";
 import "./Cuenta.scss";
 const Cuenta = () => {
-    return (
-        <div>
-            <h1>Cuenta</h1>
-        </div>
-    );
+    return <ChargeAnimation />;
 };
 
 export default Cuenta;

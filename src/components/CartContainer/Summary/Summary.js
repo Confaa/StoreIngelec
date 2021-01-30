@@ -1,5 +1,6 @@
 import cartContext from "context/CartContext/CartContext";
 import React, { useContext } from "react";
+import { Button } from "react-bootstrap";
 
 const Resume = () => {
     const { totalCompra, cantidad, clearCart } = useContext(cartContext);
@@ -8,9 +9,10 @@ const Resume = () => {
             <span className="botonesCarrito">
                 <p>Total de la compra: {totalCompra.toFixed(2)}$</p>
                 <p>Cantidad: {cantidad} item/s</p>
-                <button className="btn btn-primary" onClick={clearCart}>
+
+                <Button variant="primary" onClick={clearCart}>
                     Vaciar Carrito
-                </button>
+                </Button>
             </span>
         </div>
     );

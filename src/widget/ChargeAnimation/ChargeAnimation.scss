@@ -1,5 +1,8 @@
-#ChargeAnimation {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+#chargeAnimation {
+    justify-content: center;
+    align-self: center;
+    .spinner-border {
+        height: 4rem;
+        width: 4rem;
+    }
 }

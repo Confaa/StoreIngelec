@@ -1,5 +1,6 @@
 import cartContext from "context/CartContext/CartContext";
 import React, { useContext } from "react";
+import { Button } from "react-bootstrap";
 
 import "./ButtonsForm.scss";
 
@@ -8,13 +9,13 @@ const ButtonsForm = () => {
     const { nombre, telefono, email, repEmail, fechaCompra, clearForm } = form;
     return (
         <span id="buttonForm">
-            <button type="reset" className="btn btn-primary" onClick={clearForm}>
+            <Button variant="primary" type="reset" onClick={clearForm}>
                 Limpiar formulario
-            </button>
-            <button
+            </Button>
+            <Button
+                variant="success"
                 type="submit"
                 onClick={fechaCompra}
-                className="btn btn-success"
                 disabled={
                     nombre === "" || telefono === "" || email === "" || repEmail === ""
                         ? true
@@ -24,7 +25,7 @@ const ButtonsForm = () => {
                 }
             >
                 Finalizar pedido
-            </button>
+            </Button>
         </span>
     );
 };

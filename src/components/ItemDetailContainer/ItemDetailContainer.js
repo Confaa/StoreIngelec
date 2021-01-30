@@ -24,7 +24,7 @@ let ItemDetailContainer = () => {
     return (
         <div id="itemDetailContainer">
             {!item ? (
-                <ChargeAnimation type={"spin"} color={"#000000"} />
+                <ChargeAnimation />
             ) : item.length === 0 ? (
                 <NotExist />
             ) : (

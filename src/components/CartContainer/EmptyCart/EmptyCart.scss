@@ -1,0 +1,31 @@
+@import "assets/scss/colors.scss";
+
+#emptyCart {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    /*Dentro del contenedor*/
+    justify-content: center;
+    align-self: center;
+    height: 100%;
+    /**/
+    img {
+        --animate-duration: 0.75s;
+        height: 12rem;
+    }
+    p {
+        margin: 1.5rem 0;
+    }
+    a {
+        padding: 0.75rem;
+        background-color: $azulIngelec;
+        color: white;
+        transition: 0.3s all ease;
+        border-radius: 5px;
+        &:hover {
+            text-decoration: none;
+            background-color: $blueButtonHover;
+        }
+    }
+}

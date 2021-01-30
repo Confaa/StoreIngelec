@@ -21,7 +21,7 @@ let ItemList = ({ lista }) => {
                     );
                 })
             ) : (
-                <ChargeAnimation type={"spin"} color={"#000000"} />
+                <ChargeAnimation />
             )}
         </div>
     );

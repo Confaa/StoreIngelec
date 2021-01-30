@@ -13,7 +13,7 @@ const Productos = () => {
                     return <p key={element.id}>{element.id}</p>;
                 })
             ) : (
-                <ChargeAnimation type={"spin"} color={"#000000"} />
+                <ChargeAnimation />
             )}
         </div>
     );
