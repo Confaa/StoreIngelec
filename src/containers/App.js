@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.scss";
 import Header from "layout/Header/Header";
 import Main from "layout/Main/Main";
@@ -7,40 +7,57 @@ import { BrowserRouter } from "react-router-dom";
 import CustomProviderCart from "context/CartContext/CustomProviderCart";
 import CustomProviderProducts from "context/ProductContext/CustomProviderProducts";
 import { Container } from "react-bootstrap";
+import { getFirestore } from "firebase/firebaseSetup";
+import ChargePage from "widget/ChargePage/ChargePage";
 
 function App() {
-    const [linksGenerales, setLinksGenerales] = useState(["Home", "Productos", "Cuenta"]);
-    const [linksCategorias, setLinksCategorias] = useState([
-        "Accionamientos",
-        "Motores Electricos",
-        "Cables"
-    ]);
+    const [views, setViews] = useState();
 
-    const [linksAcc, setLinksAcc] = useState([
-        "Contactores",
-        "Termomagneticas",
-        "Relevos Termicos",
-        "Guardamotores"
-    ]);
-    const [linksMotores, setLinksMotores] = useState(["Motores Trifasicos"]);
-    const [linksCables, setLinksCables] = useState(["Unipolares", "Tipo Taller", "Subterraneos"]);
+    useEffect(() => {
+        setTimeout(() => {
+            const db = getFirestore();
+            const queryViews = db.collection("views").get();
+            queryViews
+                .then((res) => {
+                    return res.docs;
+                })
+                .then((res) => {
+                    let aux = [];
+                    res.forEach((element) => {
+                        aux.push({ id: element.id, ...element.data() });
+                    });
 
-    /* const [tipos, setTipos] = useState([linksAcc, linksMotores, linksCables]); */
-    const productos = [linksAcc, linksMotores, linksCables];
+                    let ordenamiento = { Home: 1, Productos: 2, Cuenta: 3 };
+
+                    aux.sort((a, b) => {
+                        return ordenamiento[a.description] - ordenamiento[b.description];
+                    });
+
+                    console.table(aux);
+                    setViews(aux);
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        }, [2500]);
+    }, []);
+
     return (
         <Container fluid className="grilla">
             <BrowserRouter>
-                <CustomProviderProducts>
-                    <CustomProviderCart>
-                        <Header
-                            linksGenerales={linksGenerales}
-                            linksCategorias={linksCategorias}
-                            linksAcc={productos}
-                        />
-                        <Main />
-                    </CustomProviderCart>
-                </CustomProviderProducts>
-                <Footer linksGenerales={linksGenerales} />
+                {views ? (
+                    <>
+                        <CustomProviderProducts>
+                            <CustomProviderCart>
+                                <Header views={views} />
+                                <Main />
+                            </CustomProviderCart>
+                        </CustomProviderProducts>
+                        <Footer views={views} />
+                    </>
+                ) : (
+                    <ChargePage />
+                )}
             </BrowserRouter>
         </Container>
     );

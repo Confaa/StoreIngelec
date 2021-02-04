@@ -2,33 +2,30 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "./SubNavBar.scss";
 
-const SubNavBar = ({ linksCategorias, linksAcc }) => {
+const SubNavBar = ({ categorias }) => {
     return (
         <ul id="subNavBar">
-            {linksCategorias.map((link, indice) => {
+            {categorias.map((link) => {
                 return (
-                    <li key={link}>
-                        <NavLink to={"/category/" + link.replace(/ /g, "")} exact>
-                            {link}
+                    <li key={link.id}>
+                        <NavLink to={"/categories/" + link.key} exact>
+                            {link.description}
                         </NavLink>
-                        <ul>
-                            {linksAcc[indice].map((subLink) => {
-                                return (
-                                    <li key={subLink}>
-                                        <NavLink
-                                            to={
-                                                "/category/" +
-                                                link.replace(/ /g, "") +
-                                                "/" +
-                                                subLink.replace(/ /g, "")
-                                            }
-                                        >
-                                            {subLink}
-                                        </NavLink>
-                                    </li>
-                                );
-                            })}
-                        </ul>
+                        {link.subcategories ? (
+                            <ul>
+                                {link.subcategories.map((subLink) => {
+                                    return (
+                                        <li key={subLink.key}>
+                                            <NavLink
+                                                to={"/categories/" + link.key + "/" + subLink.key}
+                                            >
+                                                {subLink.description}
+                                            </NavLink>
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                        ) : null}
                     </li>
                 );
             })}

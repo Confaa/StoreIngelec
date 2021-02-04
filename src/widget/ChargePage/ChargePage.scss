@@ -1,0 +1,17 @@
+#chargePage {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+    }
+
+    img {
+        height: 75px;
+        animation: fadeIn 0.75s infinite alternate;
+    }
+}

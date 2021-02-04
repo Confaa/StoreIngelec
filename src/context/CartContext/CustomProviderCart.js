@@ -100,7 +100,7 @@ const CustomProviderCart = ({ children }) => {
                     quantity: element.quantity
                 };
             });
-            const datosCompra = {
+            let datosCompra = {
                 buyer: {
                     name: nombre,
                     telefono: telefono,

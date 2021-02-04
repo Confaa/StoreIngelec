@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Header.scss";
 import NavBar from "./NavBar/NavBar";
 import CartWidget from "./CartWidget/CartWidget";
 import Logo from "./Logo/Logo";
 import { Container } from "react-bootstrap";
 
-let Header = ({ linksGenerales, linksCategorias, linksAcc }) => {
+let Header = ({ views }) => {
     return (
         <header>
             <Container className="superior">
@@ -13,9 +13,7 @@ let Header = ({ linksGenerales, linksCategorias, linksAcc }) => {
                 <CartWidget />
             </Container>
             <NavBar
-                linksGenerales={linksGenerales}
-                linksCategorias={linksCategorias}
-                linksAcc={linksAcc}
+                views={views}
             />
         </header>
     );
