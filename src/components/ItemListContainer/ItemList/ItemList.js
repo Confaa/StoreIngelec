@@ -3,27 +3,19 @@ import React from "react";
 import "./ItemList.scss";
 import Item from "./Item/Item";
 import ChargeAnimation from "widget/ChargeAnimation/ChargeAnimation";
+import { Row } from "react-bootstrap";
 
 let ItemList = ({ lista }) => {
     return (
-        <div id="itemList">
+        <Row id="itemList">
             {lista ? (
                 lista.map((elemento) => {
-                    return (
-                        <Item
-                            img={elemento.img}
-                            titulo={elemento.title}
-                            descripcion={elemento.description}
-                            precio={elemento.price}
-                            id={elemento.id}
-                            key={elemento.id}
-                        />
-                    );
+                    return <Item elemento={elemento} />;
                 })
             ) : (
                 <ChargeAnimation />
             )}
-        </div>
+        </Row>
     );
 };
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./Header.scss";
 import NavBar from "./NavBar/NavBar";
 import CartWidget from "./CartWidget/CartWidget";
@@ -12,9 +12,7 @@ let Header = ({ views }) => {
                 <Logo />
                 <CartWidget />
             </Container>
-            <NavBar
-                views={views}
-            />
+            <NavBar views={views} />
         </header>
     );
 };

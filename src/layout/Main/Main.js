@@ -15,9 +15,9 @@ const Main = () => {
             <Switch>
                 <Route path="/" exact component={ItemListContainer} />
 
-                <Route path="/category/:id" exact component={ItemListContainer} />
+                <Route path="/categories/:id" exact component={ItemListContainer} />
 
-                <Route path="/category/:id/:subid" exact component={ItemListContainer} />
+                <Route path="/categories/:id/:subid" exact component={ItemListContainer} />
 
                 <Route path="/Productos" component={Productos} />
 

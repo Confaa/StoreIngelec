@@ -7,7 +7,7 @@ const CustomProviderProducts = ({ children }) => {
 
     useEffect(() => {
         const db = getFirestore();
-        const query = db.collection("productos").get();
+        const query = db.collection("items").get();
         query
             .then((res) => {
                 let aux = [];
@@ -30,7 +30,7 @@ const CustomProviderProducts = ({ children }) => {
     const updateStock = (carrito) => {
         let aux = productos;
         const db = getFirestore();
-        let productsCollection = db.collection("productos");
+        let productsCollection = db.collection("items");
 
         carrito.forEach((element) => {
             aux.forEach((prod, index) => {
