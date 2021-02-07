@@ -1,8 +1,12 @@
 import React from "react";
-import ChargeAnimation from "widget/ChargeAnimation/ChargeAnimation";
+import ViewInConstruction from "widget/ViewInConstruction/ViewInConstruction";
 import "./Cuenta.scss";
 const Cuenta = () => {
-    return <ChargeAnimation />;
+    return (
+        <div id="cuenta">
+            <ViewInConstruction />
+        </div>
+    );
 };
 
 export default Cuenta;

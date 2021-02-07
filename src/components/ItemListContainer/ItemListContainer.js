@@ -3,6 +3,7 @@ import "./ItemListContainer.scss";
 import ItemList from "./ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import productContext from "context/ProductContext/ProductContext";
+import ChargeAnimation from "widget/ChargeAnimation/ChargeAnimation";
 
 let ItemListContainer = () => {
     const [lista, setLista] = React.useState(false);
@@ -46,8 +47,14 @@ let ItemListContainer = () => {
 
     return (
         <section id="itemListContainer">
-            <h5>{greeting}</h5>
-            <ItemList lista={lista} />
+            {lista ? (
+                <>
+                    <h5>{greeting}</h5>
+                    <ItemList lista={lista} />
+                </>
+            ) : (
+                <ChargeAnimation />
+            )}
         </section>
     );
 };
