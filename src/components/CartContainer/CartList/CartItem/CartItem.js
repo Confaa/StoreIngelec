@@ -2,17 +2,30 @@ import React from "react";
 import { Button, Image } from "react-bootstrap";
 
 import "./CartItem.scss";
-const CartItem = ({ img, id, title, category, quantity, price, borrarItem }) => {
+const CartItem = ({ quantity, borrarItem, item }) => {
+    const { model, img, title, brand, ratedCurrent, powerage, poles, section, price, id } = item;
+
     return (
         <div id="cartItem">
             <Image src={img} fluid alt="" />
             <span>
-                <p>Categoria: {category}</p>
-                <p>Producto: {title}</p>
-                <p>Codigo del producto: {id}</p>
+                <p>
+                    {title} {brand}
+                </p>
+                {model ? <p>Modelo: {model}</p> : ""}
+                {ratedCurrent ? (
+                    <p>Corriente Nominal: {ratedCurrent} A</p>
+                ) : powerage ? (
+                    <p>
+                        Potencia: {powerage} HP ({poles} polos)
+                    </p>
+                ) : (
+                    <p>Sección: {section} mm. </p>
+                )}
             </span>
             <p>Cantidad: {quantity}</p>
-            <p>Precio: ${price * quantity}</p>
+
+            <p>Precio: ${(price * quantity).toFixed(2)}</p>
 
             <Button variant="danger" onClick={borrarItem} value={id}>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">

@@ -1,3 +1,5 @@
+@import "assets/scss/colors.scss";
+
 #buyerForm {
     display: flex;
     flex-direction: column;
@@ -5,7 +7,7 @@
     border-radius: 0.5rem;
     padding: 0;
     margin-top: 1rem;
-    background-color: rgba($color: #b6b6b6, $alpha: 0.7);
+    background-color: rgba($gris, 0.7);
     > p {
         text-align: center;
         padding: 1rem;

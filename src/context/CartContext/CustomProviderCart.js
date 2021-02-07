@@ -21,7 +21,7 @@ const CustomProviderCart = ({ children }) => {
     const addItem = (item, quantity) => {
         //AGREGAR ITEM SEGUN CANTIDAD
         let producto = {
-            item: { id: item.id, title: item.title, price: item.price },
+            item: item,
             quantity: quantity
         };
         console.log(producto);

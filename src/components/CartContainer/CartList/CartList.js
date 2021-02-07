@@ -18,14 +18,9 @@ const CartList = ({ carrito }) => {
                 {carrito.map((element) => {
                     return (
                         <CartItem
-                            img={element.item.img}
-                            id={element.item.id}
-                            title={element.item.title}
-                            category={element.item.category}
                             quantity={element.quantity}
-                            price={element.item.price}
                             borrarItem={borrarItem}
-                            key={element.item.id}
+                            item={element.item}
                         />
                     );
                 })}

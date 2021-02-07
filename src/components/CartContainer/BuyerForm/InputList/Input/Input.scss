@@ -1,3 +1,5 @@
+@import "assets/scss/colors.scss";
+
 .input {
     display: flex;
     flex-direction: column;
@@ -15,7 +17,7 @@
         border-radius: 0.2rem;
         padding-left: 0.5rem;
         &:focus {
-            border: 3px solid orange;
+            border: 3px solid $naranjaDetalles;
             outline: none;
             box-shadow: 3px 0px 30px rgba(163, 163, 163, 0.5);
         }
