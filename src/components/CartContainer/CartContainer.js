@@ -12,13 +12,13 @@ import EmptyCart from "./EmptyCart/EmptyCart";
 const CartContainer = () => {
     const { carrito, idCompra, clearCart } = useContext(cartContext);
 
-    const [show, setShow] = useState();
+    const [showModal, setShowModal] = useState();
 
     useEffect(() => {
         if (typeof idCompra === "string") {
-            setShow(true);
+            setShowModal(true);
         } else {
-            setShow(false);
+            setShowModal(false);
         }
     }, [idCompra]);
 
@@ -37,9 +37,9 @@ const CartContainer = () => {
                     <Resume />
                     <BuyerForm />
                     <Modal
-                        show={show}
+                        show={showModal}
                         onHide={() => {
-                            setShow(false);
+                            setShowModal(false);
                             clearCart();
                         }}
                         size="lg"
@@ -61,7 +61,7 @@ const CartContainer = () => {
                             <Button
                                 variant="secondary"
                                 onClick={() => {
-                                    setShow(false);
+                                    setShowModal(false);
                                     clearCart();
                                 }}
                             >

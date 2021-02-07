@@ -1,38 +1,17 @@
-import { getFirestore } from "firebase/firebaseSetup";
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
+import productContext from "context/ProductContext/ProductContext";
 import { Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import "./NavBar.scss";
 import SubNavBar from "./SubNavBar/SubNavBar";
 
 let NavBar = ({ views }) => {
-    const [categories, setCategories] = useState([]);
-
-    useEffect(() => {
-        const db = getFirestore();
-
-        const queryCategories = db.collection("categories").get();
-        queryCategories
-            .then((res) => {
-                return res.docs;
-            })
-            .then((res) => {
-                let aux = [];
-                res.forEach((element) => {
-                    aux.push({ id: element.id, ...element.data() });
-                });
-                setCategories(aux);
-                console.log(aux);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    }, []);
+    const { categories } = useContext(productContext);
 
     return (
         <Container id="navBar">
             <ul>
-                {views.map((link, indice) => {
+                {views.map((link) => {
                     return (
                         <li key={link.id}>
                             <span>
@@ -48,7 +27,7 @@ let NavBar = ({ views }) => {
                                     ""
                                 )}
                             </span>
-                            {link.description === "Productos" ? (
+                            {link.description === "Productos" && categories ? (
                                 <SubNavBar categorias={categories} />
                             ) : (
                                 ""

@@ -10,7 +10,7 @@ let ItemList = ({ lista }) => {
         <Row id="itemList">
             {lista ? (
                 lista.map((elemento) => {
-                    return <Item elemento={elemento} />;
+                    return <Item elemento={elemento} key={elemento.id} />;
                 })
             ) : (
                 <ChargeAnimation />
