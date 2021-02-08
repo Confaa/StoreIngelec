@@ -1,0 +1,37 @@
+@import "assets/scss/colors.scss";
+#copyright {
+    background-color: $copyright;
+    color: white;
+    > div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 0;
+        span {
+            display: flex;
+            align-items: center;
+            svg {
+                height: 1.5rem;
+                fill: #61dbfb;
+                animation: rotation 2s infinite linear;
+                margin-left: 0.25rem;
+            }
+            p {
+                padding-right: 0.25rem;
+                margin: 0;
+            }
+            a {
+                color: white;
+            }
+        }
+    }
+}
+
+@keyframes rotation {
+    from {
+        rotate: (0deg);
+    }
+    to {
+        rotate: (360deg);
+    }
+}

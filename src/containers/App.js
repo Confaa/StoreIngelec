@@ -9,6 +9,7 @@ import CustomProviderProducts from "context/ProductContext/CustomProviderProduct
 import { Container } from "react-bootstrap";
 import { getFirestore } from "firebase/firebaseSetup";
 import ChargePage from "widget/ChargePage/ChargePage";
+import Copyright from "layout/Copyright/Copyright";
 
 function App() {
     const [views, setViews] = useState();
@@ -54,6 +55,7 @@ function App() {
                             </CustomProviderCart>
                         </CustomProviderProducts>
                         <Footer views={views} />
+                        <Copyright />
                     </>
                 ) : (
                     <ChargePage />

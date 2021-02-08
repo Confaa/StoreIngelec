@@ -1,0 +1,27 @@
+@import "assets/scss/colors.scss";
+#direction {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    > p {
+        padding: 0.5rem 0;
+    }
+    > div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        svg {
+            height: 3rem;
+            fill: $naranjaDetalles;
+            padding-right: 1rem;
+        }
+        span {
+            text-align: start;
+            p {
+                padding: 0;
+            }
+        }
+    }
+}

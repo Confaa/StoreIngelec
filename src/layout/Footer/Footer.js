@@ -1,22 +1,21 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Container, Row } from "react-bootstrap";
+import Contact from "./Contact/Contact";
+import Direction from "./Direction/Direction";
+
 import "./Footer.scss";
+import NavFooter from "./NavFooter/NavFooter";
 
 const Footer = ({ views }) => {
     return (
         <footer>
-            <p>Copyright 2020</p>
-            <ul>
-                {views.map((link) => {
-                    return (
-                        <li key={link.id}>
-                            <NavLink to={"/" + link.key} exact>
-                                {link.description}
-                            </NavLink>
-                        </li>
-                    );
-                })}
-            </ul>
+            <Container>
+                <Row>
+                    <Direction />
+                    <NavFooter views={views} />
+                    <Contact />
+                </Row>
+            </Container>
         </footer>
     );
 };

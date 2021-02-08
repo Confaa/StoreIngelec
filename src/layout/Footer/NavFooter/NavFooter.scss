@@ -1,0 +1,31 @@
+@import "assets/scss/colors.scss";
+#navFooter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    p {
+        &:first-child {
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        padding: 0;
+        padding-bottom: 0.5rem;
+
+        a {
+            display: flex;
+            align-items: center;
+            transition: 0.3s all ease;
+            color: white;
+            svg {
+                height: 1rem;
+                fill: $naranjaDetalles;
+                padding-right: 0.3rem;
+            }
+            &:hover {
+                color: $naranjaDetalles;
+            }
+        }
+    }
+}

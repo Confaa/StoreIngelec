@@ -1,7 +1,9 @@
+@import "assets/scss/colors.scss";
 footer {
-    background-color: #2871cc;
+    background-color: $blueButtonHover;
     color: white;
     text-align: center;
+    padding: 1rem;
     p {
         margin: 0;
         padding: 1rem 0;
