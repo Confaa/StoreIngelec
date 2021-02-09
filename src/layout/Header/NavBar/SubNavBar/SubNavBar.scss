@@ -38,11 +38,11 @@
                 }
             }
         }
-    }
-    li:hover {
-        a {
-            color: white;
-            text-decoration: none;
+        &:hover {
+            a {
+                color: white;
+                text-decoration: none;
+            }
         }
     }
 }

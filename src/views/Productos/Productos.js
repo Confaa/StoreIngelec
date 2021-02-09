@@ -1,19 +1,44 @@
 import React, { useContext } from "react";
-import productContext from "context/ProductContext/ProductContext";
 import "./Productos.scss";
+import { Link } from "react-router-dom";
+import productContext from "context/ProductContext/ProductContext";
 import ChargeAnimation from "widget/ChargeAnimation/ChargeAnimation";
 
 const Productos = () => {
-    const { productos } = useContext(productContext);
-
+    const { categories } = useContext(productContext);
+    console.log(categories);
     return (
-        <div>
-            {productos ? (
-                productos.map((element) => {
-                    return <p key={element.id}>{element.id}</p>;
+        <div id="productos">
+            {categories ? (
+                categories.map((element) => {
+                    return (
+                        <div key={element.id}>
+                            <span>
+                                <Link to={`/categories/${element.key}`}>{element.description}</Link>
+                                <small>Contactores Weg</small>
+                                <ul>
+                                    {element.subcategories.map((subelement) => {
+                                        return (
+                                            <li>
+                                                <Link
+                                                    to={`/categories/${element.key}/${subelement.key}`}
+                                                >
+                                                    {subelement.description}
+                                                </Link>
+                                            </li>
+                                        );
+                                    })}
+                                </ul>
+                            </span>
+                        </div>
+                    );
                 })
             ) : (
-                <ChargeAnimation />
+                <>
+                    <span></span>
+                    <ChargeAnimation />
+                    <span></span>
+                </>
             )}
         </div>
     );

@@ -1,0 +1,111 @@
+@import "assets/scss/mixins.scss";
+@import "assets/scss/colors.scss";
+
+#productos {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    height: 100%;
+    align-items: flex-start;
+    justify-content: center;
+
+    > div {
+        border-radius: 1rem;
+        height: 15rem;
+        transition: 1s all linear;
+        margin: 0.5rem;
+        position: relative;
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: red;
+            transition: 1s all linear;
+            height: 100%;
+            width: 100%;
+        }
+        span {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            width: 100%;
+            height: 100%;
+            background-color: rgba($gris, 1);
+            padding: 1rem;
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+            border: 2px solid red;
+            transition: 1s all linear;
+            transition-delay: 0.3s;
+
+            small {
+                display: none;
+                background-color: rgba(black, 0.6);
+                border-radius: 10px;
+                padding: 0.5rem;
+            }
+        }
+        ul {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            position: absolute;
+            left: 0;
+            top: 0;
+            max-height: 0;
+            width: 100%;
+            transition: 0.6s all ease-in-out;
+            transform: translate(0, 15rem);
+            border-bottom-left-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+            overflow: hidden;
+            background-color: $gris;
+            li {
+                list-style: none;
+                padding: 1rem;
+                a {
+                    color: blue;
+                    transition: 0.3s all ease;
+                    transition-delay: 300ms;
+                    opacity: 0;
+                }
+            }
+        }
+        &:hover {
+            color: white;
+
+            span {
+                background-color: rgba(black, 0.3);
+                border-color: white;
+                color: rgb(255, 79, 79);
+                > a {
+                    color: white;
+                    text-decoration: none;
+                }
+                small {
+                    display: inline;
+                    position: absolute;
+                }
+                ul {
+                    max-height: 400px;
+                    overflow: visible;
+                    a {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+        &:nth-child(1) {
+            background: url("https://img.interempresas.net/fotos/1087316.jpeg");
+            @include colocacionImagenesIndex;
+        }
+    }
+    /*  > div:nth-child(2) {
+        background: url("../img/index/socket1151.jpg");
+        @include colocacionImagenesIndex;
+    }
+    > div:nth-child(3) {
+        background: url("../img/index/amdRyzen.jpg");
+        @include colocacionImagenesIndex;
+    } */
+}
