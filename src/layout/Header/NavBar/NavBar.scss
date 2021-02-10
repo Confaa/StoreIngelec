@@ -1,10 +1,10 @@
+@import "assets/scss/bootstrap/_functions.scss";
+@import "assets/scss/bootstrap/_variables.scss";
+@import "assets/scss/bootstrap/mixins/_breakpoints.scss";
 @import "assets/scss/colors.scss";
 
 #navBar {
     > ul {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
         list-style: none;
         margin: 0;
         padding: 0;
@@ -21,7 +21,6 @@
             transition: 0.5s all linear;
             > span {
                 display: flex;
-                justify-content: space-between;
                 align-items: center;
                 width: 100%;
                 a {
@@ -38,24 +37,77 @@
                 }
             }
         }
-        > li:hover {
+    }
+    #toggle {
+        position: relative;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 2rem;
+        height: 1.5rem;
+        margin: 1rem auto;
+        span {
+            height: 3px;
+            width: 100%;
             background-color: white;
-            color: $azulIngelec;
-            border-radius: 5px;
-            span {
-                svg {
-                    transform: rotate(90deg);
-                    fill: $azulIngelec;
+            border-radius: 10px;
+        }
+    }
+}
+@include media-breakpoint-between(xs, md) {
+    #navBar {
+        > ul {
+            display: none;
+            flex-direction: column;
+            > li {
+                span {
+                    justify-content: center;
+                    svg {
+                        transform: rotate(90deg);
+                    }
                 }
-                a {
-                    color: $azulIngelec;
-                }
-            }
-            > ul {
-                visibility: visible;
-                transition-delay: 0.2s;
-                opacity: 1;
             }
         }
+    }
+    #toggle {
+        display: flex;
+    }
+}
+@include media-breakpoint-up(md) {
+    #navBar {
+        > ul {
+            display: flex;
+            flex-direction: row;
+            > li {
+                span {
+                    justify-content: space-between;
+
+                    svg {
+                        display: block;
+                    }
+                }
+                &:hover {
+                    background-color: white;
+                    color: $azulIngelec;
+                    border-radius: 5px;
+                    span {
+                        svg {
+                            transform: rotate(90deg);
+                            fill: $azulIngelec;
+                        }
+                        a {
+                            color: $azulIngelec;
+                        }
+                    }
+                    > ul {
+                        visibility: visible;
+                        transition-delay: 0.2s;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+    #toggle {
+        display: none;
     }
 }

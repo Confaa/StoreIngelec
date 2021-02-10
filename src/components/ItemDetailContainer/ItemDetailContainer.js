@@ -28,7 +28,10 @@ let ItemDetailContainer = () => {
             ) : item.length === 0 ? (
                 <NotExist />
             ) : (
-                <ItemDetail prod={item} />
+                <>
+                    <h5>Detalles del producto:</h5>
+                    <ItemDetail prod={item} />
+                </>
             )}
         </div>
     );

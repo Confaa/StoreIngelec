@@ -1,6 +1,9 @@
 #itemDetailContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: auto;
     height: 100%;
+    > div {
+        align-self: flex-start;
+        margin-bottom: 7rem;
+    }
 }
