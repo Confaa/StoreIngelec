@@ -1,6 +1,10 @@
 @import "assets/scss/mixins.scss";
 @import "assets/scss/colors.scss";
 
+h5 {
+    margin: 1rem;
+}
+
 #productos {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -19,8 +23,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            color: red;
-            transition: 1s all linear;
+            color: white;
+            transition: 0.3s all linear;
             height: 100%;
             width: 100%;
         }
@@ -30,13 +34,11 @@
             align-items: flex-end;
             width: 100%;
             height: 100%;
-            background-color: rgba($gris, 1);
+            background-color: rgba($blueButtonHover, 1);
+            border: 3px solid $blueButtonHover;
             padding: 1rem;
-            border-top-left-radius: 1rem;
-            border-top-right-radius: 1rem;
-            border: 2px solid red;
-            transition: 1s all linear;
-            transition-delay: 0.3s;
+            border-radius: 1rem;
+            transition: 0.3s all ease 400ms;
 
             small {
                 display: none;
@@ -54,32 +56,38 @@
             top: 0;
             max-height: 0;
             width: 100%;
-            transition: 0.6s all ease-in-out;
+            transition: 0.5s all ease-in-out;
             transform: translate(0, 15rem);
             border-bottom-left-radius: 1rem;
             border-bottom-right-radius: 1rem;
             overflow: hidden;
-            background-color: $gris;
+            background-color: $blueButtonHover;
             li {
                 list-style: none;
                 padding: 1rem;
+                height: 100%;
+                width: 100%;
                 a {
-                    color: blue;
+                    color: white;
                     transition: 0.3s all ease;
-                    transition-delay: 300ms;
                     opacity: 0;
+                    height: 100%;
+                    width: 100%;
                 }
             }
         }
         &:hover {
             color: white;
-
             span {
                 background-color: rgba(black, 0.3);
-                border-color: white;
-                color: rgb(255, 79, 79);
+                color: rgb(255, 164, 79);
+                border-radius: 0;
+                border-top-left-radius: 1rem;
+                border-top-right-radius: 1rem;
+                transition: 0.3s all linear;
+
                 > a {
-                    color: white;
+                    color: $blueButtonHover;
                     text-decoration: none;
                 }
                 small {
@@ -89,8 +97,13 @@
                 ul {
                     max-height: 400px;
                     overflow: visible;
+                    transition: 0.5s all ease-in-out 300ms;
                     a {
                         opacity: 1;
+                        &:hover {
+                            color: $naranjaDetalles;
+                            text-decoration: none;
+                        }
                     }
                 }
             }
@@ -99,13 +112,13 @@
             background: url("https://img.interempresas.net/fotos/1087316.jpeg");
             @include colocacionImagenesIndex;
         }
+        &:nth-child(2) {
+            background: url("https://liesa.com.ar/wp-content/uploads/2019/01/Distribuidores-Cables-Electricos.jpg");
+            @include colocacionImagenesIndex;
+        }
+        &:nth-child(3) {
+            background: url("https://static.weg.net/medias/images/hf0/h00/BRASIL_W22_Plus_Premium_63_132_IE3_B3Dnew_1200Wx1200H.jpg");
+            @include colocacionImagenesIndex;
+        }
     }
-    /*  > div:nth-child(2) {
-        background: url("../img/index/socket1151.jpg");
-        @include colocacionImagenesIndex;
-    }
-    > div:nth-child(3) {
-        background: url("../img/index/amdRyzen.jpg");
-        @include colocacionImagenesIndex;
-    } */
 }

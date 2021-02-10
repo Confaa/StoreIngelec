@@ -20,7 +20,7 @@ let ItemListContainer = () => {
                 if (id === undefined && subid === undefined) {
                     setLista(productos);
 
-                    setGreeting("Aqui puedes ver una lista de la totalidad de nuestros productos");
+                    setGreeting("Aqui puedes ver una lista de todos de nuestros productos");
                 } else if (typeof id === "string" && subid === undefined) {
                     aux = productos.filter((prod) => prod.category === id);
                     let a = categories.find((category) => category.key === id);
