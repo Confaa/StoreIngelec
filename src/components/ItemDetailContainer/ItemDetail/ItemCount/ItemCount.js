@@ -4,11 +4,11 @@ import { Alert, Button } from "react-bootstrap";
 
 const ItemCount = ({ initialValue, maxValue, onAdd }) => {
     const [contador, setContador] = useState(initialValue);
-    const [stock, setStock] = useState(10 /* maxValue */);
+    const [stock, setStock] = useState(maxValue);
     const [show, setShow] = useState(stock === 0 ? true : false);
 
     const aumentarContador = () => {
-        if (stock > 0 && contador < 10 /* maxValue */) {
+        if (stock > 0 && contador < maxValue) {
             setContador(contador + 1);
             setStock(stock - 1);
         } else {
@@ -17,11 +17,11 @@ const ItemCount = ({ initialValue, maxValue, onAdd }) => {
     };
 
     const restarContador = () => {
-        if (contador > 0 && stock < 10 /* maxValue */) {
+        if (contador > 0 && stock < maxValue) {
             setContador(contador - 1);
             setStock(stock + 1);
             setShow(false);
-        } else if (contador === 10 /* maxValue */) {
+        } else if (contador === maxValue) {
             setContador(contador - 1);
             setStock(stock + 1);
         }
